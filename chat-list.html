@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Inbox</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="chat-list.css" />
+  </head>
+  <body>
+    <div class="bg-mesh-purple"></div>
+
+    <div class="app-container">
+      <div class="cl-header">
+        <button class="icon-btn" onclick="window.location.href='home.html'">
+          <i class="ph-bold ph-caret-left"></i>
+        </button>
+        <span class="page-title">Signals</span>
+        <button class="icon-btn">
+          <i class="ph-bold ph-pencil-simple-slash"></i>
+        </button>
+      </div>
+
+      <div class="search-wrap">
+        <div class="minimal-search">
+          <i class="ph ph-magnifying-glass"></i>
+          <input type="text" placeholder="Search..." />
+        </div>
+      </div>
+
+      <div class="chat-stream">
+        <div
+          class="stream-item unread"
+          onclick="window.location.href='message-view.html'"
+        >
+          <div class="si-avatar">
+            <img src="https://i.pravatar.cc/150?img=5" />
+            <div class="status-indicator online"></div>
+          </div>
+          <div class="si-content">
+            <div class="si-top">
+              <span class="si-name">Alexa</span>
+              <span class="si-time">2m</span>
+            </div>
+            <div class="si-bottom">
+              <span class="si-msg">Checking our compatibility chart...</span>
+            </div>
+          </div>
+          <div class="si-status-icon">
+            <div class="msg-icon blue-filled">
+              <i class="ph-fill ph-chat-circle-text"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="stream-item">
+          <div class="si-avatar">
+            <img src="https://i.pravatar.cc/150?img=12" />
+          </div>
+          <div class="si-content">
+            <div class="si-top">
+              <span class="si-name">Riya</span>
+              <span class="si-time">1h</span>
+            </div>
+            <div class="si-bottom">
+              <span class="si-msg">Sent a voice signal</span>
+            </div>
+          </div>
+          <div class="si-status-icon">
+            <div class="msg-icon outline">
+              <i class="ph-bold ph-waveform"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="stream-item">
+          <div class="si-avatar">
+            <img src="https://i.pravatar.cc/150?img=33" />
+          </div>
+          <div class="si-content">
+            <div class="si-top">
+              <span class="si-name">Kabir</span>
+              <span class="si-time">3h</span>
+            </div>
+            <div class="si-bottom">
+              <span class="si-msg">Tap to view cosmic shot</span>
+            </div>
+          </div>
+          <div class="si-status-icon">
+            <div class="msg-icon outline red">
+              <i class="ph-bold ph-planet"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="stream-item unread">
+          <div class="si-avatar">
+            <img src="https://i.pravatar.cc/150?img=15" />
+            <div class="status-indicator online"></div>
+          </div>
+          <div class="si-content">
+            <div class="si-top">
+              <span class="si-name">Arjun</span>
+              <span class="si-time">1d</span>
+            </div>
+            <div class="si-bottom">
+              <span class="si-msg">New Orbit Connection! 👋</span>
+            </div>
+          </div>
+          <div class="si-status-icon">
+            <div class="msg-icon purple-filled">
+              <i class="ph-fill ph-infinity"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="stream-item">
+          <div class="si-avatar">
+            <img src="https://i.pravatar.cc/150?img=44" />
+          </div>
+          <div class="si-content">
+            <div class="si-top">
+              <span class="si-name">Sneha</span>
+              <span class="si-time">2d</span>
+            </div>
+            <div class="si-bottom">
+              <span class="si-msg">Hahaha exactly!</span>
+            </div>
+          </div>
+          <div class="si-status-icon">
+            <div class="msg-icon outline">
+              <i class="ph-bold ph-chat-circle"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

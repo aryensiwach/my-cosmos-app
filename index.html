@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Profile - Cosmic Social</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="profile.css" />
+  </head>
+  <body>
+    <div class="bg-mesh-purple"></div>
+
+    <div class="app-container">
+      <div class="top-bar-scroll">
+        <button class="menu-btn"><i class="ph ph-list"></i></button>
+        <button class="menu-btn"><i class="ph ph-gear"></i></button>
+      </div>
+
+      <div class="hero-section">
+        <div class="dp-wrapper">
+          <img src="https://i.pravatar.cc/300?img=11" class="dp-img" />
+          <div class="status-dot"></div>
+        </div>
+        <div class="user-name">
+          Aryendra
+          <i class="ph-fill ph-seal-check verified-badge"></i>
+        </div>
+
+        <div class="handle-box glass-pill">
+          <span class="user-handle" id="userid-text">@aryendra_01</span>
+          <button class="copy-btn" onclick="copyToClipboard()">
+            <i class="ph ph-copy"></i>
+          </button>
+        </div>
+
+        <button
+          class="btn-friends glass-btn"
+          onclick="window.location.href='friends-list.html'"
+        >
+          <i class="ph-bold ph-users"></i> View My Circle (342)
+        </button>
+
+        <div class="stats-row">
+          <div class="s-item">
+            <div class="s-val"><span id="streak-val">12</span> 🔥</div>
+            <div class="s-lbl">Streak</div>
+          </div>
+          <div class="s-item">
+            <div class="s-val">850</div>
+            <div class="s-lbl">Karma</div>
+          </div>
+        </div>
+
+        <p class="bio-text">Loves Working out , reading books , and coding .</p>
+      </div>
+
+      <div class="highlights-scroll">
+        <div class="story-circle">
+          <div class="s-ring add-new"><i class="ph-bold ph-plus"></i></div>
+          <span class="s-txt">Add</span>
+        </div>
+        <div class="story-circle">
+          <div class="s-ring">
+            <img
+              src="https://img.freepik.com/free-vector/nature-instagram-highlight-cover-flower-doodle-earth-tone-design-vector_53876-151396.jpg"
+              class="s-img"
+            />
+          </div>
+          <span class="s-txt">Travel</span>
+        </div>
+        <div class="story-circle">
+          <div class="s-ring">
+            <img
+              src="https://i.pinimg.com/736x/fe/d9/59/fed9593b55cacad8fb0d4c7bddfa5695.jpg"
+              class="s-img"
+            />
+          </div>
+          <span class="s-txt">Me</span>
+        </div>
+        <div class="story-circle">
+          <div class="s-ring">
+            <img
+              src="https://i.pinimg.com/736x/89/55/60/895560377854236392fd5cf03598f45b.jpg"
+              class="s-img"
+            />
+          </div>
+          <span class="s-txt">Friends</span>
+        </div>
+      </div>
+
+      <div class="tabs-bar">
+        <div class="tab-btn active" onclick="switchView('card', this)">
+          <i class="ph ph-cards"></i>
+        </div>
+        <div class="tab-btn" onclick="switchView('ai', this)">
+          <i class="ph ph-sparkle"></i>
+        </div>
+      </div>
+
+      <div id="card" class="view-container active">
+        <div class="daily-insight-card glass-card-full">
+          <div class="di-header">
+            <span class="di-title"
+              ><i class="ph-fill ph-sun"></i> Daily Insight</span
+            >
+            <span class="di-date" id="current-date">Today</span>
+          </div>
+          <p class="di-text">
+            "Moon in Pisces enhances your intuition today. Trust your gut with
+            code and people."
+          </p>
+        </div>
+
+        <div class="cosmic-identity-card" id="main-identity-card">
+          <div class="cosmic-grid-bg"></div>
+
+          <div class="id-header">
+            <div class="zodiac-badge">
+              <span class="z-icon">♏</span> Gemini
+            </div>
+            <span class="arch-tag">INTJ • Mystic</span>
+          </div>
+
+          <div class="id-main-stats">
+            <div class="stat-block energy">
+              <span class="lbl">Prana Energy</span>
+              <div class="val-row">
+                <i
+                  class="ph-fill ph-lightning"
+                  style="color: var(--apple-green)"
+                ></i>
+                <span class="big-txt" id="energy-val">72%</span>
+              </div>
+              <div class="mini-bar">
+                <div class="fill" id="energy-bar" style="width: 72%"></div>
+              </div>
+            </div>
+            <div class="stat-block luck">
+              <span class="lbl">Lucky Number </span>
+              <div class="val-row">
+                <i
+                  class="ph-fill ph-clover"
+                  style="color: var(--apple-orange)"
+                ></i>
+                <span class="big-txt">7</span>
+              </div>
+              <div class="mini-bar">
+                <div
+                  class="fill"
+                  style="width: 70%; background: var(--apple-orange)"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="id-footer">
+            <div class="aura-section">
+              <span class="lbl">Aura Spectrum</span>
+              <div class="aura-strip">
+                <div
+                  class="color-bit"
+                  style="background: #ff453a; flex: 2"
+                ></div>
+                <div
+                  class="color-bit"
+                  style="background: #3e7c62; flex: 1"
+                ></div>
+                <div
+                  class="color-bit"
+                  style="background: #0a84ff; flex: 3"
+                ></div>
+                <div class="color-bit" style="background: #333; flex: 1"></div>
+              </div>
+              <span class="aura-name">Mystic Red & Indigo</span>
+            </div>
+          </div>
+
+          <div class="holo-shine"></div>
+        </div>
+
+        <div class="daily-scan-wrapper">
+          <button class="btn-daily-scan" onclick="performDailyScan(this)">
+            <i class="ph-bold ph-fingerprint-simple"></i>
+            <span class="scan-text">Analyze Today's Alignment</span>
+          </button>
+          <p class="scan-subtext">Tap to sync energy & increase streak</p>
+        </div>
+
+        <span class="section-head">Planetary Alignment</span>
+        <div class="planet-slider">
+          <div class="p-card glass-card-full">
+            <div class="h-label">Sun ☀️</div>
+            <div class="p-val">Scorpio (1st)</div>
+          </div>
+          <div class="p-card glass-card-full">
+            <div class="h-label">Moon 🌙</div>
+            <div class="p-val">Pisces (5th)</div>
+          </div>
+          <div class="p-card glass-card-full">
+            <div class="h-label">Mars ☄️</div>
+            <div class="p-val">Leo (10th)</div>
+          </div>
+          <div class="p-card glass-card-full">
+            <div class="h-label">Mercury ☿️</div>
+            <div class="p-val">Libra (12th)</div>
+          </div>
+          <div class="p-card glass-card-full">
+            <div class="h-label">Jupiter ♃</div>
+            <div class="p-val">Aries (6th)</div>
+          </div>
+          <div class="p-card glass-card-full">
+            <div class="h-label">Venus ♀️</div>
+            <div class="p-val">Virgo (11th)</div>
+          </div>
+          <div class="p-card glass-card-full">
+            <div class="h-label">Saturn 🪐</div>
+            <div class="p-val">Aquarius (4th)</div>
+          </div>
+          <div class="p-card glass-card-full">
+            <div class="h-label">Rahu 🐲</div>
+            <div class="p-val">Taurus (7th)</div>
+          </div>
+          <div class="p-card glass-card-full">
+            <div class="h-label">Ketu 🐉</div>
+            <div class="p-val">Scorpio (1st)</div>
+          </div>
+        </div>
+
+        <span class="section-head">Vimshottari Dasha Status</span>
+        <div class="dasha-wrapper glass-card-full">
+          <div class="dasha-row md">
+            <div class="d-icon-box" style="background: #fff9e6; color: #ffcc00">
+              <i class="ph-fill ph-planet"></i>
+            </div>
+            <div class="d-info">
+              <div class="d-top">
+                <span class="d-name">Jupiter (Guru)</span
+                ><span class="d-badge">Mahadasha</span>
+              </div>
+              <div class="d-dates">Aug 15,2005 - Dec 15, 2025</div>
+              <div class="d-track">
+                <div
+                  class="d-fill"
+                  style="width: 65%; background: #ffcc00"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div class="dasha-connector"></div>
+          <div class="dasha-row ad">
+            <div class="d-icon-box" style="background: #f2f2f7; color: #666">
+              <i class="ph-fill ph-spiral"></i>
+            </div>
+            <div class="d-info">
+              <div class="d-top">
+                <span class="d-name">Saturn (Shani)</span
+                ><span class="d-badge" style="background: #eee; color: #333"
+                  >Antardasha</span
+                >
+              </div>
+              <div class="d-dates">Jan 20,2022 - May 20, 2026</div>
+              <div class="d-track">
+                <div class="d-fill" style="width: 80%; background: #666"></div>
+              </div>
+            </div>
+          </div>
+          <div class="dasha-connector"></div>
+          <div class="dasha-row pd">
+            <div class="d-icon-box" style="background: #ffe5e5; color: #ff3b30">
+              <i class="ph-fill ph-fire"></i>
+            </div>
+            <div class="d-info">
+              <div class="d-top">
+                <span class="d-name">Mars (Mangal)</span
+                ><span
+                  class="d-badge"
+                  style="background: #ffe5e5; color: #ff3b30"
+                  >Current PD</span
+                >
+              </div>
+              <div class="d-dates" style="color: #ff3b30; font-weight: 600">
+                Ends in 12 Days
+              </div>
+              <div class="d-track">
+                <div
+                  class="d-fill"
+                  style="width: 40%; background: #ff3b30"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <span class="section-head">Kundli Yogas</span>
+        <div class="yoga-item glass-list">
+          <div class="y-info">
+            <h4>Raja yoga</h4>
+            <p>Wealth & Fame generator.</p>
+          </div>
+          <div class="y-meta"><span class="y-rare">Moderate</span></div>
+        </div>
+      </div>
+
+      <div id="ai" class="view-container">
+        <div class="ai-wrapper glass-panel">
+          <div class="ai-header">
+            <span class="ai-head-title">
+              <i
+                class="ph-fill ph-sparkle"
+                style="color: var(--apple-blue)"
+              ></i>
+              Gemini Analysis
+            </span>
+            <button class="copy-btn" onclick="resetChat()">
+              <i class="ph ph-trash"></i>
+            </button>
+          </div>
+          <div class="chat-area">
+            <div class="msg ai">
+              Ask what you want , i can Analyse it for you.
+            </div>
+          </div>
+          <div class="suggestions">
+            <div class="chip">Health Forecast</div>
+            <div class="chip">Love Timeline</div>
+            <div class="chip">Money Blocks</div>
+          </div>
+          <div class="input-bar">
+            <button class="btn-circle-icon">
+              <i class="ph-bold ph-plus"></i>
+            </button>
+            <div class="text-field-wrapper">
+              <input type="text" class="c-input" placeholder="Ask AI..." />
+              <button class="mic-btn">
+                <i class="ph-fill ph-microphone"></i>
+              </button>
+            </div>
+            <button class="btn-circle-icon send">
+              <i class="ph-fill ph-paper-plane-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="nav-bar glass-nav">
+      <i
+        class="ph ph-house n-icon"
+        onclick="window.location.href='home.html'"
+      ></i>
+
+      <i
+        class="ph ph-planet n-icon"
+        onclick="window.location.href='galaxy.html'"
+      ></i>
+
+      <i
+        class="ph ph-scroll n-icon"
+        onclick="window.location.href='astro-knowledge.html'"
+      ></i>
+
+      <i
+        class="ph ph-user n-icon"
+        onclick="window.location.href='index.html'"
+      ></i>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>

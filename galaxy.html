@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Galaxy Playground</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="galaxy.css" />
+  </head>
+  <body>
+    <div class="bg-mesh-purple"></div>
+    <div class="app-container">
+      <div class="g-header">
+        <div class="g-pill">
+          <div class="g-item active" onclick="switchG('orbit', this)">
+            Orbit
+          </div>
+          <div class="g-item" onclick="switchG('void', this)">Void</div>
+          <div class="g-item" onclick="switchG('arcade', this)">Arcade</div>
+        </div>
+        <div
+          style="
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+          "
+        >
+          <div class="filter-toggle" id="orbit-filter">
+            <div class="ft-option active" onclick="toggleFeed('mutual', this)">
+              Mutuals
+            </div>
+            <div class="ft-option" onclick="toggleFeed('random', this)">
+              Random
+            </div>
+            <div class="ft-option" onclick="toggleFeed('requests', this)">
+              Signals
+              <div class="red-dot"></div>
+            </div>
+          </div>
+          <div class="refresh-btn" onclick="window.location.reload()">
+            <i class="ph-bold ph-arrows-clockwise"></i>
+          </div>
+        </div>
+      </div>
+
+      <div id="orbit" class="view-box active">
+        <div id="feed-mutual" class="feed-container active">
+          <div class="orbit-lane-title">💫 Soul Circle (Top Matches)</div>
+          <div class="orbit-scroll-wrapper">
+            <div class="planet-card tier-god">
+              <div class="pc-image-box">
+                <img src="https://i.pravatar.cc/300?img=5" class="pc-img" />
+                <div class="pc-badge glow-gold">2 Mutuals</div>
+                <div class="match-found-badge">✨ MIRACLE MATCH</div>
+              </div>
+              <div class="pc-content">
+                <div class="pc-details">
+                  <h2>Alexa <span class="z-sign">♏</span></h2>
+                  <div class="pc-bio">
+                    Artist. Loves obscure poetry. Soul searching.
+                  </div>
+                  <div class="yoga-box">
+                    <span class="yb-match-label">⚡ Kundli Match Verified</span>
+                    <div class="yb-header">
+                      <span class="yb-title">♾️ The Infinity Loop</span>
+                      <span class="yb-rarity rarity-god">0.1%</span>
+                    </div>
+                    <div class="yb-desc">
+                      Paraspara Karaka Yoga. Your soul was literally hunting for
+                      theirs.
+                    </div>
+                    <a href="#" class="yb-link"
+                      >Read more <i class="ph-bold ph-caret-right"></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="dopamine-slider" onclick="triggerDopamine(this)">
+                  <div class="ds-track">
+                    <div class="ds-fill"></div>
+                    <div class="ds-knob">
+                      <i class="ph-bold ph-caret-down"></i>
+                    </div>
+                    <div class="ds-text">S<br />L<br />I<br />D<br />E</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="planet-card">
+              <div class="pc-image-box">
+                <img src="https://i.pravatar.cc/300?img=11" class="pc-img" />
+                <div class="pc-badge glow-none">13 Mutuals</div>
+              </div>
+              <div class="pc-content">
+                <div class="pc-details">
+                  <h2>Rohan <span class="z-sign">♉</span></h2>
+                  <div class="pc-bio">Finance bro. Weekend traveler.</div>
+                  <div class="yoga-box">
+                    <span class="yb-match-label">⚡ Synastry Match</span>
+                    <div class="yb-header">
+                      <span class="yb-title">💰 Money Magnet</span>
+                      <span class="yb-rarity rarity-epic">RARE</span>
+                    </div>
+                    <div class="yb-desc">
+                      Dhan Yoga Overlay. Dating them makes you richer.
+                    </div>
+                    <a href="#" class="yb-link"
+                      >Read more <i class="ph-bold ph-caret-right"></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="dopamine-slider" onclick="triggerDopamine(this)">
+                  <div class="ds-track">
+                    <div class="ds-fill"></div>
+                    <div class="ds-knob">
+                      <i class="ph-bold ph-caret-down"></i>
+                    </div>
+                    <div class="ds-text">S<br />L<br />I<br />D<br />E</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="orbit-lane-title">🌱 Connections (Mutuals)</div>
+          <div class="orbit-scroll-wrapper">
+            <div class="planet-card">
+              <div class="pc-image-box">
+                <img src="https://i.pravatar.cc/300?img=36" class="pc-img" />
+                <div class="pc-badge glow-none">12 Mutuals</div>
+              </div>
+              <div class="pc-content">
+                <div class="pc-details">
+                  <h2>Sneha <span class="z-sign">♊</span></h2>
+                  <div class="pc-bio">Coffee addict. Talks too much.</div>
+                  <div class="yoga-box">
+                    <span class="yb-match-label">✨ Friendly Match</span>
+                    <div class="yb-header">
+                      <span class="yb-title">🧠 Yap Partner</span>
+                      <span class="yb-rarity rarity-basic">COMMON</span>
+                    </div>
+                    <div class="yb-desc">
+                      Graha Maitri. You can talk for 6 hours straight.
+                    </div>
+                  </div>
+                </div>
+                <div class="dopamine-slider" onclick="triggerDopamine(this)">
+                  <div class="ds-track">
+                    <div class="ds-fill"></div>
+                    <div class="ds-knob">
+                      <i class="ph-bold ph-caret-down"></i>
+                    </div>
+                    <div class="ds-text">S<br />L<br />I<br />D<br />E</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="planet-card">
+              <div class="pc-image-box">
+                <img src="https://i.pravatar.cc/300?img=9" class="pc-img" />
+                <div class="pc-badge glow-none">5 Mutuals</div>
+              </div>
+              <div class="pc-content">
+                <div class="pc-details">
+                  <h2>Kavya <span class="z-sign">♈</span></h2>
+                  <div class="pc-bio">Impulsive. Intense.</div>
+                  <div class="yoga-box">
+                    <span class="yb-match-label">⚠️ Warning</span>
+                    <div class="yb-header">
+                      <span class="yb-title">☢️ Toxic Obsession</span>
+                      <span class="yb-rarity rarity-toxic">RISKY</span>
+                    </div>
+                    <div class="yb-desc">
+                      Angarak Yoga. Insane chemistry but 0 peace.
+                    </div>
+                  </div>
+                </div>
+                <div class="dopamine-slider" onclick="triggerDopamine(this)">
+                  <div class="ds-track">
+                    <div class="ds-fill"></div>
+                    <div class="ds-knob">
+                      <i class="ph-bold ph-caret-down"></i>
+                    </div>
+                    <div class="ds-text">S<br />L<br />I<br />D<br />E</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="feed-random" class="feed-container">
+          <div class="orbit-lane-title">📍 Nearby Souls</div>
+          <div class="orbit-scroll-wrapper">
+            <div class="planet-card">
+              <div class="pc-image-box">
+                <img src="https://i.pravatar.cc/300?img=60" class="pc-img" />
+                <div class="pc-badge glow-purple">500m Away</div>
+              </div>
+              <div class="pc-content">
+                <div class="pc-details">
+                  <h2>Aarav <span class="z-sign">♐</span></h2>
+                  <div class="pc-bio">Explorer. Photographer.</div>
+                  <div class="yoga-box">
+                    <span class="yb-match-label">Kundli Match Verified</span>
+                    <div class="yb-header">
+                      <span class="yb-title">Past Life Debt</span>
+                      <span class="yb-rarity rarity-god">20%</span>
+                    </div>
+                    <div class="yb-desc">
+                      Paraspara Karaka Yoga. Your soul was literally hunting for
+                      theirs.
+                    </div>
+                    <a href="#" class="yb-link"
+                      >Read more <i class="ph-bold ph-caret-right"></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="dopamine-slider" onclick="triggerDopamine(this)">
+                  <div class="ds-track">
+                    <div class="ds-fill"></div>
+                    <div class="ds-knob">
+                      <i class="ph-bold ph-caret-down"></i>
+                    </div>
+                    <div class="ds-text">S<br />L<br />I<br />D<br />E</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="planet-card">
+              <div class="pc-image-box">
+                <img src="https://i.pravatar.cc/300?img=40" class="pc-img" />
+                <div class="pc-badge glow-purple">2km Away</div>
+              </div>
+              <div class="pc-content">
+                <div class="pc-details">
+                  <h2>Zara <span class="z-sign">♑</span></h2>
+                  <div class="pc-bio">Startup founder. Busy.</div>
+                  <div class="yoga-box">
+                    <span class="yb-match-label">Kundli Match Verified</span>
+                    <div class="yb-header">
+                      <span class="yb-title">♾️ The Infinity Loop</span>
+                    </div>
+                    <div class="yb-desc">
+                      Paraspara Karaka Yoga. Your soul was literally hunting for
+                      theirs.
+                    </div>
+                    <a href="#" class="yb-link"
+                      >Read more <i class="ph-bold ph-caret-right"></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="dopamine-slider" onclick="triggerDopamine(this)">
+                  <div class="ds-track">
+                    <div class="ds-fill"></div>
+                    <div class="ds-knob">
+                      <i class="ph-bold ph-caret-down"></i>
+                    </div>
+                    <div class="ds-text">S<br />L<br />I<br />D<br />E</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="feed-requests" class="feed-container">
+          <div class="orbit-lane-title">📡 Incoming Transmissions (2)</div>
+          <div class="signal-stack">
+            <div class="signal-card gold-tier" id="sig-god">
+              <div class="sig-left">
+                <img src="https://i.pravatar.cc/150?img=5" class="sig-img" />
+                <div class="sig-icon glow-gold" style="background: #d4a000">
+                  <i class="ph-fill ph-star"></i>
+                </div>
+              </div>
+              <div class="sig-mid">
+                <div class="sig-name">Alexa <span class="z-sign">♏</span></div>
+                <div class="sig-meta"><b>♾️ Infinity Loop Match</b></div>
+                <div class="sig-desc">
+                  "Your chart appeared in my Golden Zone. I had to connect."
+                </div>
+              </div>
+              <div class="sig-actions">
+                <button class="s-btn accept" onclick="toggleSignalState(this)">
+                  <i class="ph-bold ph-check"></i>
+                </button>
+                <button
+                  class="s-btn reject"
+                  onclick="handleSignal('sig-god', false)"
+                >
+                  <i class="ph-bold ph-x"></i>
+                </button>
+              </div>
+            </div>
+            <div class="signal-card" id="sig-1">
+              <div class="sig-left">
+                <img src="https://i.pravatar.cc/150?img=28" class="sig-img" />
+                <div class="sig-icon green">
+                  <i class="ph-fill ph-arrow-down-left"></i>
+                </div>
+              </div>
+              <div class="sig-mid">
+                <div class="sig-name">
+                  Ishita <span class="z-sign">♋</span>
+                </div>
+                <div class="sig-meta"><b>🧠 Yap Partner</b></div>
+                <div class="sig-desc">
+                  "Moon Trine Sun. Cosmos says: She understands."
+                </div>
+              </div>
+              <div class="sig-actions">
+                <button class="s-btn accept" onclick="toggleSignalState(this)">
+                  <i class="ph-bold ph-check"></i>
+                </button>
+                <button
+                  class="s-btn reject"
+                  onclick="handleSignal('sig-1', false)"
+                >
+                  <i class="ph-bold ph-x"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="void" class="view-box">
+        <div class="void-container">
+          <div class="black-hole-wrap">
+            <div class="accretion-disk"></div>
+            <div class="event-horizon"></div>
+          </div>
+          <div class="void-text">
+            <h1>The Void</h1>
+            <p>432 Souls drifting.</p>
+          </div>
+          <button class="btn-warp">
+            Enter The Void <i class="ph-bold ph-tornado"></i>
+          </button>
+        </div>
+      </div>
+
+      <div id="arcade" class="view-box">
+        <div class="arcade-grid-2x2">
+          <div class="game-tile glass-panel">
+            <div
+              class="gt-img"
+              style="
+                background-image: url('https://devimages-cdn.apple.com/wwdc-services/articles/images/3D5F5DD3-14F7-4384-94C0-798D15EE7CD7/2048.jpeg');
+              "
+            ></div>
+            <div class="gt-content">
+              <div class="gt-head"><b>Star Crossed</b></div>
+              <button class="btn-play"><i class="ph-fill ph-play"></i></button>
+            </div>
+          </div>
+          <div class="game-tile glass-panel">
+            <div
+              class="gt-img"
+              style="
+                background-image: url('https://cdna.artstation.com/p/assets/images/images/017/563/696/large/camila-carbia-m-todasjuntas.jpg?1556502433');
+              "
+            ></div>
+            <div class="gt-content">
+              <div class="gt-head"><b>Tarot</b></div>
+              <button class="btn-play"><i class="ph-fill ph-play"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="nav-bar glass-nav">
+      <i
+        class="ph ph-house n-icon"
+        onclick="window.location.href='home.html'"
+      ></i>
+      <i
+        class="ph ph-planet n-icon"
+        onclick="window.location.href='galaxy.html'"
+      ></i>
+      <i
+        class="ph ph-scroll n-icon"
+        onclick="window.location.href='astro-knowledge.html'"
+      ></i>
+      <i
+        class="ph ph-user n-icon"
+        onclick="window.location.href='index.html'"
+      ></i>
+    </nav>
+
+    <script>
+      function switchG(view, btn) {
+        document
+          .querySelectorAll(".view-box")
+          .forEach((el) => el.classList.remove("active"));
+        document.getElementById(view).classList.add("active");
+        document
+          .querySelectorAll(".g-item")
+          .forEach((el) => el.classList.remove("active"));
+        btn.classList.add("active");
+        const filter = document.getElementById("orbit-filter");
+        filter.style.display = view === "orbit" ? "flex" : "none";
+      }
+
+      function toggleFeed(type, btn) {
+        document
+          .querySelectorAll(".ft-option")
+          .forEach((el) => el.classList.remove("active"));
+        btn.classList.add("active");
+        document
+          .querySelectorAll(".feed-container")
+          .forEach((el) => el.classList.remove("active"));
+        document.getElementById("feed-" + type).classList.add("active");
+      }
+
+      function handleSignal(id, accepted) {
+        const card = document.getElementById(id);
+        if (accepted) {
+          card.style.transform = "translateX(100%)";
+          card.style.opacity = "0";
+        } else {
+          card.style.transform = "translateX(-100%)";
+          card.style.opacity = "0";
+        }
+        setTimeout(() => (card.style.display = "none"), 300);
+        if (navigator.vibrate) navigator.vibrate(50);
+      }
+
+      function toggleSignalState(btn) {
+        if (btn.classList.contains("sent")) {
+          btn.classList.remove("sent");
+          btn.innerHTML = '<i class="ph-bold ph-check"></i>';
+          if (navigator.vibrate) navigator.vibrate(50);
+        } else {
+          btn.classList.add("sent");
+          btn.innerHTML = '<i class="ph-bold ph-arrow-u-up-left"></i>';
+          if (navigator.vibrate) navigator.vibrate([50, 50]);
+        }
+      }
+
+      function triggerDopamine(el) {
+        const knob = el.querySelector(".ds-knob");
+        const fill = el.querySelector(".ds-fill");
+        const text = el.querySelector(".ds-text");
+        const icon = el.querySelector("i");
+        knob.style.top = "calc(100% - 34px)";
+        fill.style.height = "100%";
+        setTimeout(() => {
+          icon.classList.remove("ph-caret-down");
+          icon.classList.add("ph-check", "ph-bold");
+          text.style.opacity = "0";
+          el.classList.add("success-pulse");
+        }, 300);
+        if (navigator.vibrate) navigator.vibrate([50, 50, 100]);
+      }
+    </script>
+  </body>
+</html>

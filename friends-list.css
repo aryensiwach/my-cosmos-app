@@ -1,0 +1,180 @@
+/* --- HEADER --- */
+.fl-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+}
+.page-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.circle-btn {
+  width: 36px;
+  height: 36px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+}
+
+/* --- SEARCH --- */
+.search-section {
+  padding: 15px 20px;
+  background: transparent;
+}
+.search-box {
+  background: white;
+  border-radius: 16px;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.search-box i {
+  font-size: 18px;
+  color: #999;
+}
+.search-box input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  background: transparent;
+}
+
+/* --- FILTERS --- */
+.filter-scroll {
+  display: flex;
+  gap: 8px;
+  padding: 0 20px 15px 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.filter-chip {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  white-space: nowrap;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.filter-chip.active {
+  background: var(--text-main);
+  color: white;
+  border-color: var(--text-main);
+}
+
+/* --- FRIEND LIST --- */
+.friends-list {
+  padding: 0 20px 40px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.friend-card {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+.friend-card:active {
+  transform: scale(0.98);
+  background: white;
+}
+
+/* Avatar */
+.f-avatar {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+.f-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+.online-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--apple-green);
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+/* Info */
+.f-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.f-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+.f-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* Tags */
+.f-tag {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.f-tag.green {
+  background: rgba(52, 199, 89, 0.15);
+  color: var(--apple-green);
+}
+.f-tag.red {
+  background: rgba(255, 59, 48, 0.15);
+  color: var(--apple-red);
+}
+.f-tag.blue {
+  background: rgba(0, 122, 255, 0.15);
+  color: var(--apple-blue);
+}
+.f-tag.purple {
+  background: rgba(175, 82, 222, 0.15);
+  color: var(--apple-purple);
+}

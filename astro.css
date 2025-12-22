@@ -1,0 +1,551 @@
+/* --- PAGE LAYOUT --- */
+.page-header {
+  padding: 20px 20px 10px 20px;
+}
+.page-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 5px;
+}
+.page-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+/* --- SEARCH BAR --- */
+.wiki-search {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 10px 15px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+}
+.wiki-search i {
+  color: #999;
+  font-size: 18px;
+}
+.wiki-search input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  color: var(--text-main);
+}
+
+/* --- TABS --- */
+.wiki-tabs {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 15px;
+  scrollbar-width: none;
+}
+.w-tab {
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: #666;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.w-tab.active {
+  background: var(--text-main);
+  color: white;
+  border-color: var(--text-main);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- SECTIONS & CARDS --- */
+.wiki-section {
+  display: none;
+  padding: 0 20px 100px 20px;
+  animation: fadeIn 0.3s;
+}
+.wiki-section.active {
+  display: block;
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  padding: 16px;
+  margin-bottom: 15px;
+  border: 1px solid white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+.ic-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.ic-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+.ic-desc {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Tags */
+.ic-tag {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 10px;
+  text-transform: uppercase;
+}
+.tag-rare {
+  background: linear-gradient(135deg, #ffd700, #ffa500);
+  color: white;
+}
+.tag-bad {
+  background: rgba(255, 59, 48, 0.1);
+  color: var(--apple-red);
+}
+.tag-good {
+  background: rgba(52, 199, 89, 0.1);
+  color: var(--apple-green);
+}
+.tag-info {
+  background: rgba(0, 122, 255, 0.1);
+  color: var(--apple-blue);
+}
+.tag-mystic {
+  background: #6a0dad;
+  color: white;
+}
+
+/* Special Card Borders/Styles */
+.gold-border {
+  border-left: 4px solid #ffd700;
+}
+.purple-border {
+  border-left: 4px solid var(--apple-purple);
+}
+.red-border {
+  border-left: 4px solid var(--apple-red);
+  background: rgba(255, 59, 48, 0.03);
+}
+.blue-border {
+  border-left: 4px solid var(--apple-blue);
+}
+.mystic-bg {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), #f3e5f5);
+  border: 1px solid #e1bee7;
+}
+
+/* Logic Visuals */
+.logic-visual {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  background: rgba(0, 0, 0, 0.03);
+  padding: 10px;
+  border-radius: 12px;
+}
+.lv-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ccc;
+}
+.lv-line {
+  flex: 1;
+  height: 2px;
+  background: #ccc;
+}
+.lv-text {
+  font-size: 10px;
+  color: #888;
+  font-weight: 600;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* --- PAGE HEADER & TABS (Same as before) --- */
+.page-header {
+  padding: 20px 20px 10px 20px;
+}
+.page-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 5px;
+}
+.page-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.wiki-search {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 10px 15px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+}
+.wiki-search i {
+  color: #999;
+  font-size: 18px;
+}
+.wiki-search input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  color: var(--text-main);
+}
+
+.wiki-tabs {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 15px;
+  scrollbar-width: none;
+}
+.w-tab {
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: #666;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.w-tab.active {
+  background: var(--text-main);
+  color: white;
+  border-color: var(--text-main);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- WIKI SECTIONS --- */
+.wiki-section {
+  display: none;
+  padding: 0 20px 120px 20px;
+  animation: fadeIn 0.3s;
+}
+.wiki-section.active {
+  display: block;
+}
+
+/* --- NEW: DETAILED ARTICLE CARD --- */
+.wiki-article-card {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.wa-img {
+  position: relative;
+  height: 180px;
+  width: 100%;
+}
+.wa-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.wa-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: var(--apple-blue);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.wa-badge.purple {
+  background: var(--apple-purple);
+}
+.wa-badge.red {
+  background: var(--apple-red);
+}
+.wa-badge.blue {
+  background: var(--apple-blue);
+}
+
+.wa-content {
+  padding: 20px;
+}
+.wa-head h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0;
+  line-height: 1.2;
+}
+.wa-sub {
+  font-size: 12px;
+  color: var(--apple-purple);
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.wa-desc {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Steps/Lists inside card */
+.wa-steps {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 16px;
+  margin-top: 15px;
+}
+.ws-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.ws-item {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.ws-item b {
+  color: var(--text-main);
+}
+
+/* Highlight Box */
+.wa-box {
+  background: rgba(175, 82, 222, 0.1);
+  border-left: 3px solid var(--apple-purple);
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.wa-box i {
+  color: var(--apple-purple);
+  font-size: 18px;
+  margin-top: 2px;
+}
+.wa-box span {
+  font-size: 11px;
+  color: var(--text-main);
+  line-height: 1.4;
+}
+
+/* --- EXISTING SMALL CARD STYLES --- */
+.info-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  padding: 16px;
+  margin-bottom: 15px;
+  border: 1px solid white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+.ic-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.ic-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+.ic-desc {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.5;
+}
+.ic-tag {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 10px;
+  text-transform: uppercase;
+}
+.tag-rare {
+  background: linear-gradient(135deg, #ffd700, #ffa500);
+  color: white;
+}
+.tag-good {
+  background: rgba(52, 199, 89, 0.1);
+  color: var(--apple-green);
+}
+.tag-bad {
+  background: rgba(255, 59, 48, 0.1);
+  color: var(--apple-red);
+}
+.tag-info {
+  background: rgba(0, 122, 255, 0.1);
+  color: var(--apple-blue);
+}
+
+.gold-border {
+  border-left: 4px solid #ffd700;
+}
+.purple-border {
+  border-left: 4px solid var(--apple-purple);
+}
+.blue-border {
+  border-left: 4px solid var(--apple-blue);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ... Previous CSS ... */
+
+/* --- TIER HEADERS --- */
+.tier-header {
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-top: 25px;
+  margin-bottom: 2px;
+  letter-spacing: 1px;
+}
+.tier-sub {
+  font-size: 11px;
+  color: #888;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.gold-text {
+  color: #d4a000;
+  text-shadow: 0 0 10px rgba(212, 160, 0, 0.2);
+}
+.blue-text {
+  color: var(--apple-blue);
+}
+.red-text {
+  color: var(--apple-red);
+}
+.green-text {
+  color: var(--apple-green);
+}
+
+/* --- TIER BORDERS --- */
+.god-border {
+  border: 2px solid #ffd700;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 215, 0, 0.1)
+  );
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+}
+.epic-border {
+  border-left: 4px solid var(--apple-blue);
+  background: rgba(240, 248, 255, 0.9);
+}
+.savage-border {
+  border-left: 4px solid var(--apple-red);
+  background: rgba(255, 240, 240, 0.9);
+}
+.basic-border {
+  border-left: 4px solid var(--apple-green);
+}
+
+/* --- RARITY BADGES --- */
+.tag-legendary {
+  background: linear-gradient(90deg, #ffd700, #ffa500);
+  color: white;
+  box-shadow: 0 2px 10px rgba(255, 165, 0, 0.4);
+}
+.tag-epic {
+  background: var(--apple-blue);
+  color: white;
+}
+.tag-savage {
+  background: var(--apple-red);
+  color: white;
+}
+.tag-common {
+  background: #eee;
+  color: #666;
+}
+
+/* Rarity Bar */
+.rarity-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.rb-fill {
+  height: 100%;
+  border-radius: 3px;
+}
+.rb-text {
+  position: absolute;
+  right: 0;
+  top: -18px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+}

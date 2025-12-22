@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Friend Profile</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="friend-profile.css" />
+  </head>
+  <body>
+    <div class="bg-mesh-purple"></div>
+
+    <div class="app-container">
+      <div class="top-bar-scroll">
+        <button class="menu-btn" onclick="window.history.back()">
+          <i class="ph-bold ph-caret-left"></i>
+        </button>
+        <button class="menu-btn">
+          <i class="ph-bold ph-dots-three-vertical"></i>
+        </button>
+      </div>
+
+      <div class="hero-section">
+        <div class="dp-wrapper">
+          <img src="https://i.pravatar.cc/300?img=5" class="dp-img" />
+          <div class="status-dot online"></div>
+        </div>
+
+        <div class="user-name">
+          Urvashi <i class="ph-fill ph-seal-check verified-badge"></i>
+        </div>
+
+        <div class="handle-box glass-pill">
+          <span class="user-handle">@urv_scorpio</span>
+        </div>
+
+        <div class="stats-row">
+          <div class="s-item">
+            <span class="s-val">412</span> <span class="s-lbl">Friends</span>
+          </div>
+          <div class="s-divider"></div>
+          <div class="s-item">
+            <span class="s-val">89</span> <span class="s-lbl">Streak</span>
+          </div>
+          <div class="s-divider"></div>
+          <div class="s-item">
+            <span class="s-val">1.2k</span> <span class="s-lbl">Karma</span>
+          </div>
+        </div>
+
+        <p class="bio-text">
+          Mystic soul. Scorpio Sun. 🌙<br />Decoding the matrix.
+        </p>
+
+        <div class="profile-actions">
+          <button
+            class="btn-action primary"
+            onclick="window.location.href='message-view.html'"
+          >
+            Message
+          </button>
+          <button class="btn-action danger" onclick="confirmUnfriend()">
+            <i class="ph-bold ph-user-minus"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="highlights-scroll">
+        <div class="story-circle">
+          <div class="s-ring active">
+            <img src="https://i.pravatar.cc/100?img=5" class="s-img" />
+          </div>
+          <span class="s-txt">Travel</span>
+        </div>
+        <div class="story-circle">
+          <div class="s-ring active">
+            <img src="https://i.pravatar.cc/100?img=15" class="s-img" />
+          </div>
+          <span class="s-txt">Aura</span>
+        </div>
+        <div class="story-circle">
+          <div class="s-ring seen">
+            <img src="https://i.pravatar.cc/100?img=20" class="s-img" />
+          </div>
+          <span class="s-txt">Cats</span>
+        </div>
+      </div>
+
+      <div class="section-divider">COSMIC SYNERGY</div>
+
+      <div class="view-container">
+        <div class="connection-card god-tier">
+          <div class="cc-header">
+            <div class="cc-icon gold"><i class="ph-fill ph-crown"></i></div>
+            <div class="cc-info">
+              <h3 class="gold-text">The Infinity Loop</h3>
+              <span class="cc-rarity">Super Rare (0.1%)</span>
+            </div>
+          </div>
+
+          <div class="cc-body">
+            <p class="congrats-text">
+              ✨ <b>Congrats!</b> In Vedic Astrology, this combination is
+              incredibly rare.
+            </p>
+            <p>
+              Your <b>Atmakaraka</b> (Soul Planet) and her
+              <b>Darakaraka</b> (Spouse Planet) are exactly the same. The
+              universe conspired to make this happen.
+            </p>
+          </div>
+
+          <div
+            class="cc-link"
+            onclick="window.location.href='astro-knowledge.html'"
+          >
+            <span>What does this mean?</span>
+            <i class="ph-bold ph-arrow-right"></i>
+          </div>
+
+          <div class="shine"></div>
+        </div>
+
+        <div class="premium-unlock-box">
+          <div class="pub-info">
+            <b>Unlock Deep Analysis</b>
+            <span>Get 15+ pages of compatibility report.</span>
+          </div>
+          <button class="btn-buy" onclick="buyReport()">
+            <span>₹30</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function confirmUnfriend() {
+        if (confirm("Disconnect from this cosmic orbit?")) {
+          window.location.href = "home.html";
+        }
+      }
+
+      function buyReport() {
+        const btn = document.querySelector(".btn-buy");
+        btn.innerHTML = '<i class="ph-bold ph-spinner ph-spin"></i>';
+        setTimeout(() => {
+          alert("Payment Gateway would open here.");
+          btn.innerHTML = "<span>₹30</span>";
+        }, 1000);
+      }
+    </script>
+  </body>
+</html>

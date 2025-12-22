@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Chat</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="chat.css" />
+  </head>
+  <body>
+    <div class="bg-mesh-purple"></div>
+
+    <div class="app-container" style="overflow: hidden; height: 100vh">
+      <div class="chat-header glass-header">
+        <button class="icon-btn" onclick="window.history.back()">
+          <i class="ph-bold ph-caret-left"></i>
+        </button>
+        <div class="chat-user-meta">
+          <div class="cu-avatar">
+            <img src="https://i.pravatar.cc/150?img=5" />
+            <div class="status-dot online"></div>
+          </div>
+          <div class="cu-info">
+            <span class="cu-name">Alexa</span>
+            <span class="cu-status">Online</span>
+          </div>
+        </div>
+        <button class="icon-btn circle-btn">
+          <i class="ph-fill ph-video-camera"></i>
+        </button>
+      </div>
+
+      <div class="tab-container">
+        <div class="ios-segment big-segment">
+          <div class="seg-btn active" onclick="switchMode('chat', this)">
+            Chat
+          </div>
+          <div class="seg-btn" onclick="switchMode('analysis', this)">
+            Cosmic AI
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-viewport">
+        <div id="chat-view" class="view-section active">
+          <div class="time-divider">Today</div>
+
+          <div class="msg-row received">
+            <div class="msg-bubble">Hey! Ready for the quiz?</div>
+            <span class="msg-time">10:02 AM</span>
+          </div>
+
+          <div class="msg-row sent">
+            <div class="msg-bubble">Born ready! Let's do it.</div>
+            <span class="msg-time">10:03 AM</span>
+          </div>
+
+          <div class="game-center-card glass-panel">
+            <div class="gc-head">
+              <i class="ph-fill ph-game-controller"></i>
+              <span>Compatibility Quiz</span>
+            </div>
+            <div class="gc-content">
+              <div class="gc-score">Score: 2/3</div>
+              <div class="gc-result-row">
+                <span>🍕 Food</span>
+                <i class="ph-bold ph-check" style="color: green"></i>
+              </div>
+              <div class="gc-result-row">
+                <span>🏖️ Travel</span>
+                <i class="ph-bold ph-check" style="color: green"></i>
+              </div>
+              <div class="gc-result-row">
+                <span>🐶 Pet</span>
+                <i class="ph-bold ph-x" style="color: red"></i>
+              </div>
+            </div>
+            <button class="gc-btn">Play Again</button>
+          </div>
+
+          <div class="msg-row received">
+            <div class="msg-bubble">Haha, at least we agree on Pizza! 🍕</div>
+            <span class="msg-time">10:05 AM</span>
+          </div>
+
+          <div style="height: 50px"></div>
+        </div>
+
+        <div id="analysis-view" class="view-section ai-section-fix">
+          <div class="ai-wrapper">
+            <div class="ai-header-sm">
+              <span class="ai-title">Relationship Analysis</span>
+              <div class="ai-actions"><i class="ph-bold ph-trash"></i></div>
+            </div>
+
+            <div class="ai-scroll-content">
+              <div class="msg ai small-font-mode">
+                Scanning charts for Aryendra (Scorpio) & Alexa (Pisces)...<br /><br />
+                <strong>• Connection:</strong> Deeply emotional & psychic.<br />
+                <strong>• Risk:</strong> You both hide feelings. Be vocal.<br />
+                <strong>• Rating:</strong> 8.5/10 (High Potential).
+              </div>
+            </div>
+
+            <div class="ai-footer-controls">
+              <div class="suggestions sm-chips">
+                <div class="chip">Toxic Check</div>
+                <div class="chip">Future?</div>
+              </div>
+
+              <div class="input-bar sm-input">
+                <button class="btn-circle-icon">
+                  <i class="ph-bold ph-image"></i>
+                </button>
+                <div class="text-field-wrapper">
+                  <input type="text" class="c-input" placeholder="Ask AI..." />
+                </div>
+                <button class="btn-circle-icon send">
+                  <i class="ph-fill ph-paper-plane-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="message-input-bar glass-panel" id="chat-input-bar">
+        <button
+          class="action-btn-circle"
+          id="plus-btn"
+          onclick="toggleGameMenu()"
+        >
+          <i class="ph-bold ph-plus"></i>
+        </button>
+        <input
+          type="text"
+          class="clean-input"
+          id="main-input"
+          placeholder="Message..."
+        />
+        <button class="send-btn-circle" onclick="sendMessage()">
+          <i class="ph-fill ph-paper-plane-right"></i>
+        </button>
+      </div>
+
+      <div class="game-popover glass-panel" id="game-popover">
+        <div class="pop-item">COLLABORATION</div>
+        <div class="pop-item" onclick="insertGame('quiz')">
+          <i class="ph-fill ph-question" style="color: var(--apple-purple)"></i>
+          Quiz
+        </div>
+
+        <div class="pop-divider"></div>
+
+        <div class="pop-item">REALITY CHECK</div>
+        <div class="pop-item" onclick="insertGame('toxic')">
+          <i
+            class="ph-fill ph-warning-octagon"
+            style="color: var(--apple-red)"
+          ></i>
+          Toxic Check
+        </div>
+        <div class="pop-item" onclick="insertGame('loyalty')">
+          <i
+            class="ph-fill ph-shield-check"
+            style="color: var(--apple-green)"
+          ></i>
+          Loyalty
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let currentMode = "chat";
+
+      function switchMode(mode, btn) {
+        document
+          .querySelectorAll(".seg-btn")
+          .forEach((el) => el.classList.remove("active"));
+        btn.classList.add("active");
+
+        document
+          .querySelectorAll(".view-section")
+          .forEach((el) => el.classList.remove("active"));
+
+        currentMode = mode;
+        if (mode === "chat") {
+          document.getElementById("chat-view").classList.add("active");
+          document.getElementById("chat-input-bar").style.display = "flex";
+        } else {
+          document.getElementById("analysis-view").classList.add("active");
+          document.getElementById("chat-input-bar").style.display = "none";
+        }
+      }
+
+      function toggleGameMenu() {
+        const menu = document.getElementById("game-popover");
+        const btn = document.getElementById("plus-btn");
+
+        if (menu.style.display === "flex") {
+          menu.style.display = "none";
+          btn.style.transform = "rotate(0deg)";
+        } else {
+          menu.style.display = "flex";
+          btn.style.transform = "rotate(45deg)";
+        }
+      }
+
+      document.addEventListener("click", function (event) {
+        const menu = document.getElementById("game-popover");
+        const btn = document.getElementById("plus-btn");
+        if (!menu.contains(event.target) && !btn.contains(event.target)) {
+          menu.style.display = "none";
+          btn.style.transform = "rotate(0deg)";
+        }
+      });
+
+      function sendMessage() {
+        const input = document.getElementById("main-input");
+        const text = input.value;
+        if (!text) return;
+        const container = document.getElementById("chat-view");
+        container.insertAdjacentHTML(
+          "beforeend",
+          `<div class="msg-row sent"><div class="msg-bubble">${text}</div></div>`
+        );
+        input.value = "";
+        container.scrollTop = container.scrollHeight;
+      }
+
+      function insertGame(type) {
+        toggleGameMenu();
+        const container = document.getElementById("chat-view");
+        let html = "";
+
+        if (type === "quiz") {
+          html = `
+              <div class="game-center-card glass-panel">
+                <div class="gc-head"><i class="ph-fill ph-game-controller"></i><span>Match Quiz</span></div>
+                <div class="gc-content" style="text-align:center; padding:10px;">
+                    Waiting for Alexa... <i class="ph-bold ph-spinner ph-spin"></i>
+                </div>
+              </div>`;
+        } else if (type === "toxic") {
+          html = `
+              <div class="game-center-card glass-panel" style="border-color:var(--apple-red)">
+                <div class="gc-head" style="color:var(--apple-red)"><i class="ph-fill ph-warning"></i><span>Toxic Check</span></div>
+                <div class="gc-content" style="text-align:center; padding:10px;">
+                    Calculating Red Flags...
+                </div>
+              </div>`;
+        }
+
+        container.insertAdjacentHTML("beforeend", html);
+        container.scrollTop = container.scrollHeight;
+      }
+    </script>
+  </body>
+</html>
