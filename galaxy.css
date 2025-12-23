@@ -1,5 +1,4 @@
-/* --- Header & Orbit Card Styles Same as Previous... --- */
-/* (Previous Orbit, Header, Dopamine styles remain the same as provided in last response) */
+/* --- HEADER & NAVIGATION --- */
 .g-header {
   display: flex;
   flex-direction: column;
@@ -34,6 +33,8 @@
   color: white;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+
+/* --- FILTERS --- */
 .filter-toggle {
   display: flex;
   background: rgba(0, 0, 0, 0.05);
@@ -66,6 +67,7 @@
   right: 4px;
 }
 
+/* --- VIEWS & FEEDS --- */
 .view-box {
   display: none;
   padding-bottom: 100px;
@@ -81,10 +83,10 @@
   display: block;
   animation: slideIn 0.3s;
 }
+
 .orbit-lane-title {
   padding: 0 20px;
-  margin-top: 20px;
-  margin-bottom: 8px;
+  margin: 20px 0 8px 0;
   font-size: 12px;
   font-weight: 800;
   color: var(--text-muted);
@@ -99,6 +101,15 @@
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
 }
+.section-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  margin-bottom: 8px;
+}
+
+/* --- PLANET CARDS --- */
 .planet-card {
   min-width: 250px;
   width: 75vw;
@@ -109,9 +120,10 @@
   padding: 12px;
   border: 1px solid rgba(255, 255, 255, 0.8);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  /* scroll-snap-align: start; */
   display: flex;
   flex-direction: column;
+  /* Add this so scroll snapping works */
+  scroll-snap-align: center;
 }
 .pc-image-box {
   position: relative;
@@ -137,6 +149,8 @@
   color: white;
   backdrop-filter: blur(5px);
 }
+
+/* Glow Utilities */
 .glow-purple {
   background: rgba(175, 82, 222, 0.9);
 }
@@ -144,7 +158,7 @@
   background: rgba(0, 122, 255, 0.9);
 }
 .glow-none {
-  background: rgba(0, 0, 0, 0.226);
+  background: rgba(0, 0, 0, 0.23);
 }
 .glow-red {
   background: rgba(255, 59, 48, 0.9);
@@ -152,10 +166,14 @@
 .glow-gold {
   background: rgba(255, 204, 0, 0.9);
 }
+
+/* Card Content */
 .pc-content {
   display: flex;
   gap: 10px;
-  height: 120px;
+  height: auto !important;
+  min-height: 120px;
+  align-items: flex-start;
 }
 .pc-details {
   flex: 1;
@@ -174,34 +192,158 @@
   font-size: 14px;
   color: var(--apple-purple);
 }
-.pc-tag {
+.pc-bio {
+  font-size: 10px;
+  color: #888;
+  margin-bottom: 8px;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* --- YOGA / TIERS --- */
+.yoga-box {
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 10px;
+  padding: 8px;
+  margin-top: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.yb-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.yb-title {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--text-main);
+}
+.yb-rarity {
   font-size: 9px;
-  color: var(--apple-green);
   font-weight: 700;
   text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 6px;
 }
-.pc-tag.red {
-  color: var(--apple-red);
-}
-.pc-tag.blue {
-  color: var(--apple-blue);
-}
-.pc-tag.purple {
-  color: var(--apple-purple);
-}
-.pc-tag.green {
-  color: var(--apple-green);
-}
-.pc-tag.gold {
-  color: #d4a000;
-}
-.pc-desc {
-  font-size: 11px;
+.yb-desc {
+  font-size: 10px;
   color: #666;
-  line-height: 1.3;
-  font-style: italic;
-  margin-top: 4px;
+  line-height: 1.4;
+  margin-bottom: 6px;
 }
+.yb-match-label {
+  font-size: 9px;
+  color: var(--apple-purple);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 2px;
+}
+.yb-link {
+  font-size: 9px;
+  color: var(--apple-blue);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+/* NEW BUTTON STYLE */
+.yb-read-more {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-top: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--apple-blue);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: opacity 0.2s;
+}
+.yb-read-more:active {
+  opacity: 0.6;
+}
+.yb-read-more i {
+  font-size: 10px;
+}
+
+/* Rarity Colors */
+.rarity-god {
+  background: linear-gradient(135deg, #ffd700, #ffa500);
+  color: white;
+}
+.rarity-epic {
+  background: #e0e0e0;
+  color: #555;
+  border: 1px solid #ccc;
+}
+.rarity-toxic {
+  background: #222;
+  color: #ff3b30;
+}
+.rarity-basic {
+  background: #f2f2f7;
+  color: #888;
+}
+
+/* Tier Specific Styles */
+.planet-card.tier-god {
+  border: 2px solid #ffd700;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.4),
+    inset 0 0 10px rgba(255, 215, 0, 0.1);
+  animation: godPulse 3s infinite alternate;
+  position: relative;
+  overflow: hidden;
+}
+.planet-card.tier-god::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 215, 0, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: shine 4s infinite linear;
+  pointer-events: none;
+}
+.match-found-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #ffd700, #ffa500);
+  color: white;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(255, 165, 0, 0.4);
+  z-index: 10;
+  border: 1px solid white;
+  white-space: nowrap;
+}
+.planet-card.tier-epic {
+  border: 1px solid #b0b0b0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+.planet-card.tier-toxic {
+  border: 1px solid rgba(255, 59, 48, 0.3);
+}
+
+/* --- SLIDER / CLICKER --- */
 .dopamine-slider {
   width: 36px;
   height: 100%;
@@ -262,7 +404,36 @@
   animation: pulseGlow 0.5s ease-out;
 }
 
-/* --- NEW: SIGNAL (REQUEST) STACK --- */
+/* --- SIGNALS & REQUESTS --- */
+.sub-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+.st-item {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: 0.2s;
+}
+.st-item.active {
+  background: white;
+  color: var(--text-main);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.signal-list {
+  display: none;
+}
+.signal-list.active {
+  display: block;
+  animation: fadeIn 0.3s;
+}
 .signal-stack {
   display: flex;
   flex-direction: column;
@@ -270,6 +441,7 @@
   padding: 0 20px 40px 20px;
 }
 
+/* Old Small Signal Cards (Still used for Sent) */
 .signal-card {
   display: flex;
   gap: 12px;
@@ -281,10 +453,8 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
   transition: transform 0.3s, opacity 0.3s;
 }
-/* Red Flag Variant */
-.signal-card.red-flag {
-  border: 1px solid rgba(255, 59, 48, 0.3);
-  background: rgba(255, 235, 235, 0.7);
+.signal-card.sent-card {
+  background: rgba(245, 245, 247, 0.7);
 }
 
 .sig-left {
@@ -316,9 +486,6 @@
 .sig-icon.green {
   background: var(--apple-green);
 }
-.sig-icon.red {
-  background: var(--apple-red);
-}
 .sig-icon.blue {
   background: var(--apple-blue);
 }
@@ -339,22 +506,14 @@
   color: var(--text-muted);
   margin-bottom: 2px;
 }
-.sig-meta b {
-  color: var(--apple-purple);
-}
-.sig-desc {
-  font-size: 11px;
-  color: #555;
-  line-height: 1.3;
-  font-style: italic;
-}
-
 .sig-actions {
   display: flex;
   flex-direction: column;
   gap: 6px;
   justify-content: center;
 }
+
+/* Small Buttons for Sent Items */
 .s-btn {
   width: 34px;
   height: 34px;
@@ -370,17 +529,97 @@
 .s-btn:active {
   transform: scale(0.9);
 }
-.s-btn.accept {
-  background: var(--text-main);
-  color: white;
-}
-.s-btn.reject {
-  background: white;
-  color: var(--text-muted);
-  border: 1px solid #eee;
+.s-btn.undo {
+  width: auto;
+  padding: 0 12px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--apple-red);
+  border: 1px solid rgba(255, 59, 48, 0.2);
 }
 
-/* Void & Arcade styles same... */
+/* --- REQUEST CARD BUTTONS (NEW) --- */
+.request-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  width: 100%;
+}
+.req-btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 14px;
+  border: none;
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+.req-btn:active {
+  transform: scale(0.95);
+}
+.req-btn.accept {
+  background: var(--text-main);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.req-btn.reject {
+  background: white;
+  color: var(--apple-red);
+  border: 1px solid rgba(255, 59, 48, 0.2);
+}
+
+/* --- CONTROLS & UTILS --- */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dist-filter {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-muted);
+  outline: none;
+  backdrop-filter: blur(5px);
+}
+.refresh-btn,
+.refresh-btn-sm {
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.refresh-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.refresh-btn-sm {
+  width: 28px;
+  height: 28px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+.refresh-text {
+  text-align: center;
+  font-size: 10px;
+  color: #999;
+  padding: 10px 0 30px 0;
+}
+
+/* --- VOID & ARCADE --- */
 .void-container {
   height: 65vh;
   display: flex;
@@ -449,6 +688,7 @@
   gap: 10px;
   margin-top: 30px;
 }
+
 .arcade-grid-2x2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -492,6 +732,8 @@
   font-size: 14px;
   cursor: pointer;
 }
+
+/* --- ANIMATIONS --- */
 @keyframes spinDisk {
   to {
     transform: rotate(360deg);
@@ -528,162 +770,6 @@
     box-shadow: 0 0 0 0 rgba(52, 199, 89, 0);
   }
 }
-/* --- NEW FEATURES: Tiers & Yoga Section --- */
-
-/* 1. Remove fixed height restrictions to fit Bio & Yoga */
-.pc-content {
-  height: auto !important; /* Overriding previous 120px limit */
-  min-height: 120px;
-  align-items: flex-start;
-}
-
-/* 2. Bio Styling */
-.pc-bio {
-  font-size: 10px;
-  color: #888;
-  margin-bottom: 8px;
-  line-height: 1.3;
-  display: -webkit-box;
-  -webkit-line-clamp: 2; /* Show max 2 lines */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* 3. Yoga/Match Box Styling */
-.yoga-box {
-  background: rgba(0, 0, 0, 0.03);
-  border-radius: 10px;
-  padding: 8px;
-  margin-top: 4px;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.yb-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 4px;
-}
-
-.yb-title {
-  font-size: 11px;
-  font-weight: 800;
-  color: var(--text-main);
-}
-
-.yb-rarity {
-  font-size: 9px;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding: 2px 6px;
-  border-radius: 6px;
-}
-
-/* Rarity Colors */
-.rarity-god {
-  background: linear-gradient(135deg, #ffd700, #ffa500);
-  color: white;
-}
-.rarity-epic {
-  background: #e0e0e0;
-  color: #555;
-  border: 1px solid #ccc;
-}
-.rarity-toxic {
-  background: #222;
-  color: #ff3b30;
-}
-.rarity-basic {
-  background: #f2f2f7;
-  color: #888;
-}
-
-.yb-desc {
-  font-size: 10px;
-  color: #666;
-  line-height: 1.4;
-  margin-bottom: 6px;
-}
-
-.yb-match-label {
-  font-size: 9px;
-  color: var(--apple-purple);
-  font-weight: 600;
-  display: block;
-  margin-bottom: 2px;
-}
-
-.yb-link {
-  font-size: 9px;
-  color: var(--apple-blue);
-  text-decoration: none;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 2px;
-}
-
-/* --- TIER EFFECTS (Borders & Glows) --- */
-
-/* TIER 1: GOD MODE (Golden Glow Animation) */
-.planet-card.tier-god {
-  border: 2px solid #ffd700;
-  box-shadow: 0 0 25px rgba(255, 215, 0, 0.4),
-    inset 0 0 10px rgba(255, 215, 0, 0.1);
-  animation: godPulse 3s infinite alternate;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Optional: Adding a subtle shine overlay for God Mode */
-.planet-card.tier-god::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    45deg,
-    transparent,
-    rgba(255, 215, 0, 0.1),
-    transparent
-  );
-  transform: rotate(45deg);
-  animation: shine 4s infinite linear;
-  pointer-events: none;
-}
-
-/* Match Found Badge for Rare Cards */
-.match-found-badge {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(90deg, #ffd700, #ffa500);
-  color: white;
-  font-size: 10px;
-  font-weight: 800;
-  padding: 4px 12px;
-  border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(255, 165, 0, 0.4);
-  z-index: 10;
-  border: 1px solid white;
-  white-space: nowrap;
-}
-
-/* TIER 2: EPIC (Silver/Platinum Look) */
-.planet-card.tier-epic {
-  border: 1px solid #b0b0b0;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-}
-
-/* TIER 3: TOXIC (Red Danger Look - Optional) */
-.planet-card.tier-toxic {
-  border: 1px solid rgba(255, 59, 48, 0.3);
-}
-
-/* Animations */
 @keyframes godPulse {
   0% {
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
@@ -694,7 +780,6 @@
     border-color: #ffed8a;
   }
 }
-
 @keyframes shine {
   0% {
     transform: translateX(-100%) rotate(45deg);
@@ -703,14 +788,15 @@
     transform: translateX(100%) rotate(45deg);
   }
 }
-/* --- RESPONSIVENESS (Small Screens) --- */
+
+/* --- RESPONSIVENESS --- */
 @media screen and (max-width: 380px) {
   .planet-card {
     width: 80vw;
     padding: 10px;
   }
   .pc-image-box {
-    height: 180px; /* Thoda chota kiya image height */
+    height: 180px;
   }
   .pc-details h2 {
     font-size: 14px;
@@ -718,60 +804,7 @@
   .yb-title {
     font-size: 10px;
   }
-  .yb-desc {
-    font-size: 9px;
-    line-height: 1.2;
-  }
   .dopamine-slider {
-    width: 32px; /* Slider thoda patla */
+    width: 32px;
   }
-}
-
-/* --- REFRESH ICON STYLE --- */
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-left: auto; /* Push to right */
-}
-.refresh-btn {
-  background: white;
-  border: none;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  color: var(--text-main);
-  transition: transform 0.3s;
-}
-.refresh-btn:active {
-  transform: rotate(180deg);
-}
-
-/* --- SIGNAL CARD GOLDEN MODE --- */
-.signal-card.gold-tier {
-  border: 1px solid #ffd700;
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0.9),
-    rgba(255, 215, 0, 0.1)
-  );
-  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
-}
-.signal-card.gold-tier .sig-name {
-  color: #bfa100; /* Dark Gold Text */
-}
-
-/* --- TOGGLE BUTTON STATES --- */
-.s-btn.sent {
-  background: #34c759 !important; /* Green */
-  color: white !important;
-  pointer-events: auto; /* Allow clicking again to undo */
-}
-.s-btn.sent i {
-  /* Change Icon to Undo visually if needed, or keep check */
 }
