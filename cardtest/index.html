@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galaxy Card Test</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+      /* --- 1. PAGE BACKGROUND (Sirf testing ke liye) --- */
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: radial-gradient(
+          circle at 50% 50%,
+          #2b1055,
+          #7597de
+        ); /* Cosmic BG */
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* --- 2. CARD CONTAINER --- */
+      .planet-card {
+        width: 300px; /* Card Width */
+        background: rgba(255, 255, 255, 0.9); /* Glassy White */
+        backdrop-filter: blur(25px);
+        border-radius: 28px;
+        padding: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        gap: 15px; /* Spacing between Image, Text, Slider */
+      }
+
+      /* --- 3. IMAGE AREA --- */
+      .pc-image-box {
+        position: relative;
+        width: 100%;
+        height: 320px; /* Tall Portrait Image */
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+      .pc-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      /* Match Badge (Top Right) */
+      .match-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: linear-gradient(
+          90deg,
+          #ffd700,
+          #ffae00
+        ); /* Gold Gradient */
+        color: white;
+        font-size: 10px;
+        font-weight: 800;
+        padding: 6px 12px;
+        border-radius: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      /* --- 4. TEXT CONTENT --- */
+      .pc-content {
+        padding: 0 5px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .pc-header h2 {
+        font-size: 22px;
+        font-weight: 700;
+        color: #1c1c1e;
+        margin: 0;
+      }
+      .z-sign {
+        color: #af52de;
+      }
+      .user-id {
+        font-size: 11px;
+        color: #888;
+        font-weight: 500;
+        margin-top: 2px;
+        display: block;
+      }
+      .pc-bio {
+        font-size: 12px;
+        color: #666;
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      /* Yoga Box (Purple Box) */
+      .yoga-box {
+        background: rgba(175, 82, 222, 0.08);
+        border-radius: 16px;
+        padding: 10px;
+        border: 1px solid rgba(175, 82, 222, 0.1);
+      }
+      .yb-title {
+        font-size: 11px;
+        font-weight: 800;
+        color: #af52de;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+        display: block;
+      }
+      .yb-desc {
+        font-size: 10px;
+        color: #555;
+        line-height: 1.3;
+      }
+
+      /* --- 5. HORIZONTAL SLIDER (The Main Logic) --- */
+      .h-slider {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        background: #f2f2f7; /* Gray Track */
+        border-radius: 25px;
+        cursor: pointer;
+        overflow: hidden;
+        user-select: none;
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+      }
+
+      /* Text inside slider ("Slide to Connect") */
+      .hs-text {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        font-weight: 700;
+        color: #bbb;
+        letter-spacing: 1px;
+        z-index: 1;
+        transition: opacity 0.3s;
+      }
+
+      /* The Moving Knob (Circle) */
+      .hs-knob {
+        width: 44px;
+        height: 44px;
+        background: white;
+        border-radius: 50%;
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        z-index: 3;
+        color: #333;
+        font-size: 20px;
+        transition: left 0.4s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth Slide */
+      }
+
+      /* Green Fill Effect */
+      .hs-fill {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 0%;
+        background: #34c759; /* Apple Green */
+        border-radius: 25px;
+        z-index: 2;
+        transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      /* --- ACTIVE STATE (When Slided) --- */
+      .h-slider.active .hs-knob {
+        left: calc(100% - 47px); /* Move knob to end */
+        color: #34c759;
+      }
+      .h-slider.active .hs-fill {
+        width: 100%; /* Fill track green */
+      }
+      .h-slider.active .hs-text {
+        opacity: 0; /* Hide text */
+      }
+
+      /* Final Sent State Text */
+      .h-slider.sent .hs-text {
+        content: "REQUEST SENT"; /* Not real CSS, handled via JS */
+        color: white;
+        opacity: 1;
+        z-index: 4;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="planet-card">
+      <div class="pc-image-box">
+        <img src="https://i.pravatar.cc/300?img=5" class="pc-img" />
+        <div class="match-badge">✨ 98% Match</div>
+      </div>
+
+      <div class="pc-content">
+        <div class="pc-header">
+          <h2>Divya <span class="z-sign">♏</span></h2>
+          <span class="user-id">@divya_scorpio</span>
+        </div>
+
+        <div class="pc-bio">Artist. Loves poetry. Soul searching.</div>
+
+        <div class="yoga-box">
+          <span class="yb-title">♾️ Infinity Loop</span>
+          <span class="yb-desc"
+            >Paraspara Karaka Yoga. Your soul was literally hunting for
+            theirs.</span
+          >
+        </div>
+
+        <div class="h-slider" onclick="triggerSlide(this)">
+          <div class="hs-fill"></div>
+          <div class="hs-text">SLIDE TO CONNECT</div>
+          <div class="hs-knob">
+            <i class="ph-bold ph-caret-right"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function triggerSlide(el) {
+        // Prevent multiple clicks
+        if (el.classList.contains("active")) return;
+
+        // 1. Start Animation
+        el.classList.add("active");
+
+        // 2. Wait for slide (400ms) then update UI
+        setTimeout(() => {
+          el.classList.add("sent");
+
+          // Change Text
+          el.querySelector(".hs-text").innerText = "REQUEST SENT";
+
+          // Change Icon to Checkmark
+          el.querySelector(".hs-knob").innerHTML =
+            '<i class="ph-bold ph-check"></i>';
+
+          // Vibrate (Mobile only)
+          if (navigator.vibrate) navigator.vibrate([50]);
+        }, 400);
+      }
+    </script>
+  </body>
+</html>

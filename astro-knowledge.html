@@ -7,211 +7,271 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
     <title>Cosmic Wisdom</title>
-
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
     <link rel="stylesheet" href="global.css" />
     <link rel="stylesheet" href="astro.css" />
   </head>
   <body>
     <div class="bg-mesh-purple"></div>
-
     <div class="app-container">
       <div class="page-header">
         <div class="page-title">Cosmic Wiki 📜</div>
         <div class="page-sub">decoding the matrix.</div>
-
         <div class="wiki-search">
-          <i class="ph ph-magnifying-glass"></i>
-          <input type="text" placeholder="Search God Mode, Toxicity..." />
+          <i class="ph ph-magnifying-glass"></i
+          ><input type="text" placeholder="Search..." />
         </div>
 
         <div class="wiki-tabs">
           <div class="w-tab active" onclick="switchWiki('matches', this)">
-            Matches 💘
+            Engine ⚙️
           </div>
+          <div class="w-tab" onclick="switchWiki('tiers', this)">Rarity 💎</div>
           <div class="w-tab" onclick="switchWiki('yogs', this)">Yogs</div>
           <div class="w-tab" onclick="switchWiki('mystic', this)">Mystic</div>
-          <div class="w-tab" onclick="switchWiki('charts', this)">Charts</div>
         </div>
       </div>
 
       <div id="matches" class="wiki-section active">
-        <div class="tier-header gold-text">🏆 TIER 1: GOD MODE (Legendary)</div>
-        <p class="tier-sub">Rarity: 0.1% - The "Miracle" Matches.</p>
+        <div class="engine-hero glass-card-full">
+          <div class="eh-title">Calculated Reality.</div>
+          <p class="eh-sub">Why our suggestions feel different.</p>
 
-        <div class="info-card god-border">
+          <div class="comparison-box">
+            <div class="c-side">
+              <span class="c-head">Others</span>
+              <div class="c-visual gray-box">
+                <i class="ph-bold ph-user"></i>
+                <span>Profile A</span>
+              </div>
+              <p class="c-desc">They show you a person.</p>
+            </div>
+
+            <div class="c-vs">VS</div>
+
+            <div class="c-side active">
+              <span class="c-head" style="color: var(--apple-purple)">Us</span>
+              <div class="c-visual gradient-box">
+                <i class="ph-fill ph-infinity"></i>
+                <span>The Bond</span>
+              </div>
+              <p class="c-desc">We show you the <b>Connection</b>.</p>
+            </div>
+          </div>
+
+          <div class="eh-explanation">
+            <p>
+              <i
+                class="ph-fill ph-check-circle"
+                style="color: var(--apple-green)"
+              ></i>
+              When you see a suggestion on our app, you aren't just seeing their
+              photo. You are seeing a
+              <span style="color: rgb(153, 130, 0)">Pre-Calculated Future</span
+              >.
+            </p>
+            <p>
+              <i
+                class="ph-fill ph-check-circle"
+                style="color: var(--apple-green)"
+              ></i>
+              We merge your chart (D1+D9) with theirs instantly to predict
+              compatibility before you even say Hi.
+            </p>
+          </div>
+        </div>
+
+        <div class="layers-card">
+          <h3><i class="ph-fill ph-stack"></i> Deep Scan Technology</h3>
+          <div class="layer-row">
+            <div class="l-icon"><i class="ph-bold ph-user"></i></div>
+            <div class="l-text">
+              <b>Level 1: Physical (D1)</b><br />Initial Attraction & Chemistry.
+            </div>
+          </div>
+          <div class="layer-line"></div>
+          <div class="layer-row">
+            <div class="l-icon"><i class="ph-bold ph-heart"></i></div>
+            <div class="l-text">
+              <b>Level 2: Soul (D9)</b><br />Marriage & Long-term Stability.
+            </div>
+          </div>
+          <div class="layer-line"></div>
+          <div class="layer-row">
+            <div class="l-icon">
+              <i class="ph-bold ph-clock-counter-clockwise"></i>
+            </div>
+            <div class="l-text">
+              <b>Level 3: Karma (D60)</b><br />Past life debts & unfinished
+              business.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tiers" class="wiki-section">
+        <div class="tier-label" style="color: #d4a000">GOD MODE (0.1%)</div>
+        <div class="info-card god-mode-card">
           <div class="ic-head">
             <div class="ic-title">♾️ The Infinity Loop</div>
-            <span class="ic-tag tag-legendary">1 in 10,000</span>
+            <span class="ic-tag tag-legendary">Legendary</span>
           </div>
           <p class="ic-desc">
-            <b>Paraspara Karaka Yoga.</b> Your soul was literally hunting for
-            theirs. Your "Self" planet is their "Spouse" planet. Basically, you
-            are each other's destination.
-          </p>
-          <div class="rarity-bar">
-            <div class="rb-fill" style="width: 1%; background: #ffd700"></div>
-            <span class="rb-text">Ultra Rare</span>
-          </div>
-        </div>
-
-        <div class="info-card god-border">
-          <div class="ic-head">
-            <div class="ic-title">🦄 Twin Flame</div>
-            <span class="ic-tag tag-legendary">1 in 100</span>
-          </div>
-          <p class="ic-desc">
-            Your Soul (D1 Chart) is sitting in their Destiny (D9 Chart). It's
-            not just love; it's a spiritual mirror. Painful but transformative.
+            <b>Paraspara Karaka Yoga.</b> Your soul was hunting for theirs. You
+            are each other's final destination.
           </p>
         </div>
 
-        <div class="tier-header blue-text">💎 TIER 2: EPIC (Rare)</div>
-        <p class="tier-sub">Rarity: 5% - The "Ideal" Couples.</p>
-
-        <div class="info-card epic-border">
+        <div class="tier-label" style="color: var(--apple-blue)">
+          EPIC MATCHES (5%)
+        </div>
+        <div class="info-card simple-card blue-accent">
           <div class="ic-head">
             <div class="ic-title">🔗 Past Life Debt</div>
-            <span class="ic-tag tag-epic">1 in 20</span>
+            <span class="ic-tag tag-blue">Rinanubandh</span>
           </div>
           <p class="ic-desc">
-            <b>Rinanubandh.</b> Rahu/Ketu connection. You guys have unfinished
-            business from a previous version. You <i>have</i> to meet to clear
-            the debt.
+            Unfinished business from a previous life. You met to settle the
+            score.
           </p>
         </div>
-
-        <div class="info-card epic-border">
+        <div class="info-card simple-card blue-accent">
           <div class="ic-head">
             <div class="ic-title">💰 Money Magnet</div>
-            <span class="ic-tag tag-epic">1 in 15</span>
+            <span class="ic-tag tag-blue">Fortune</span>
           </div>
           <p class="ic-desc">
-            <b>Dhan Yoga Overlay.</b> Their Venus falls in your House of Money.
-            Basically, dating them makes you richer. Secure the bag.
+            Their Venus is in your 2nd House. Dating them literally makes you
+            richer.
           </p>
         </div>
 
-        <div class="info-card epic-border">
-          <div class="ic-head">
-            <div class="ic-title">🛡️ The Protector</div>
-            <span class="ic-tag tag-epic">Safe</span>
-          </div>
-          <p class="ic-desc">
-            <b>Mahendra Koot.</b> This person will physically and emotionally
-            guard you. The "Ride or Die" energy.
-          </p>
+        <div class="tier-label" style="color: var(--apple-red)">
+          SAVAGE / TOXIC (20%)
         </div>
-
-        <div class="tier-header red-text">☢️ TIER 3: SAVAGE (Toxic/Spicy)</div>
-        <p class="tier-sub">Rarity: 20% - Gen Z's Guilty Pleasure.</p>
-
-        <div class="info-card savage-border">
+        <div class="info-card simple-card red-accent">
           <div class="ic-head">
             <div class="ic-title">☢️ Toxic Obsession</div>
-            <span class="ic-tag tag-savage">High Risk</span>
+            <span class="ic-tag tag-red">Warning</span>
           </div>
           <p class="ic-desc">
-            <b>Angarak Yoga.</b> Mars + Rahu. Insane physical chemistry but you
-            will drive each other crazy. 10/10 attraction, 0/10 peace.
+            <b>Angarak Yoga.</b> 10/10 Physical chemistry, but 0/10 mental
+            peace. Proceed with caution.
           </p>
         </div>
-
-        <div class="info-card savage-border">
+        <div class="info-card simple-card red-accent">
           <div class="ic-head">
             <div class="ic-title">👻 Flight Risk</div>
-            <span class="ic-tag tag-savage">Ghoster</span>
+            <span class="ic-tag tag-red">Ghoster</span>
           </div>
           <p class="ic-desc">
-            Air Moon + Saturn Aspect. This person has commitment issues written
-            in the stars. They <i>will</i> ghost you.
+            Air Moon + Saturn. They have commitment issues hardwired in their
+            stars.
           </p>
         </div>
 
-        <div class="info-card savage-border">
-          <div class="ic-head">
-            <div class="ic-title">⚔️ Enemies to Lovers</div>
-            <span class="ic-tag tag-savage">Drama</span>
-          </div>
-          <p class="ic-desc">
-            <b>Shadashtak (6-8).</b> You trigger each other's worst side, but
-            the makeup process is... intense. Pure drama.
-          </p>
+        <div class="tier-label" style="color: var(--apple-green)">
+          COMMON (50%)
         </div>
-
-        <div class="tier-header green-text">✅ TIER 4: BASIC (Common)</div>
-        <p class="tier-sub">Rarity: 50% - Daily Matches.</p>
-
-        <div class="info-card basic-border">
+        <div class="info-card simple-card green-accent">
           <div class="ic-head">
             <div class="ic-title">🧠 Yap Partner</div>
-            <span class="ic-tag tag-common">Bestie</span>
+            <span class="ic-tag tag-green">Bestie</span>
           </div>
           <p class="ic-desc">
-            <b>Graha Maitri.</b> Your Moon Lords are friends. You can talk for 6
-            hours straight about nothing. Safe bet.
-          </p>
-        </div>
-
-        <div class="info-card basic-border">
-          <div class="ic-head">
-            <div class="ic-title">🔥 Bedroom Vibe</div>
-            <span class="ic-tag tag-common">Physical</span>
-          </div>
-          <p class="ic-desc">
-            <b>Yoni Maitri.</b> Your "Animal" signs match. Physical
-            compatibility is through the roof. No awkwardness.
+            Great for talking, average for romance. A safe, stable connection.
           </p>
         </div>
       </div>
 
       <div id="yogs" class="wiki-section">
-        <div class="info-card gold-border">
+        <div class="info-card simple-card gold-accent">
           <div class="ic-head">
             <div class="ic-title">🐘 Gajakesari Yog</div>
-            <span class="ic-tag tag-rare">Rare</span>
+            <span class="ic-tag tag-gold">Wealth</span>
           </div>
           <p class="ic-desc">
-            Jupiter in Kendra from Moon. Gives lasting fame, wisdom, and wealth.
-            A "King-maker" combination.
+            Jupiter + Moon. Lasting fame and wisdom. A "King-maker" combination.
+          </p>
+        </div>
+        <div class="info-card simple-card purple-accent">
+          <div class="ic-head">
+            <div class="ic-title">🔮 Budhaditya Yog</div>
+            <span class="ic-tag tag-purple">Genius</span>
+          </div>
+          <p class="ic-desc">
+            Sun + Mercury. High intellect. Common in top-tier coders and
+            writers.
           </p>
         </div>
       </div>
 
       <div id="mystic" class="wiki-section">
-        <div class="info-card mystic-bg">
-          <div class="ic-head">
-            <div class="ic-title" style="color: #4a0072">
-              🧘 Astral Projection
+        <div class="wiki-article-card">
+          <div class="wa-img">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0195/9342/files/astral-projection-training-service-500x500_480x480.png?v=1640326811"
+            /><span class="wa-badge purple">Advanced</span>
+          </div>
+          <div class="wa-content">
+            <div class="wa-head">
+              <h2>Astral Projection</h2>
+              <span class="wa-sub">The Art of Separation</span>
             </div>
-            <span class="ic-tag tag-mystic">OOBE</span>
+            <p class="wa-desc">
+              Intentional detachment of consciousness. Connects to the
+              <b>12th House</b>.
+            </p>
+            <div class="wa-steps">
+              <div class="ws-title">
+                <i class="ph-fill ph-steps"></i> The Exit Protocol
+              </div>
+              <div class="ws-item">
+                1. <b>Vibration:</b> Sleep body, wake mind. Wait for the "buzz".
+              </div>
+              <div class="ws-item">
+                2. <b>Rope:</b> Visualize climbing a rope out of your chest.
+              </div>
+              <div class="ws-item">
+                3. <b>Snap:</b> Feel the pop. Do not look back immediately.
+              </div>
+            </div>
           </div>
-          <p class="ic-desc">
-            The ability of the soul to leave the body. Linked to
-            <b>8th & 12th House</b>.
-          </p>
         </div>
-      </div>
 
-      <div id="charts" class="wiki-section">
-        <div class="info-card blue-border">
-          <div class="ic-head">
-            <div class="ic-title">🗺️ D1 Chart</div>
-            <span class="ic-tag tag-info">Body</span>
+        <div class="wiki-article-card">
+          <div class="wa-img">
+            <img
+              src="https://spells8.com/wp-content/uploads/2021/07/Goddess-Isis-Symbols-Witchcraft.jpg"
+            /><span class="wa-badge red">Healing</span>
           </div>
-          <p class="ic-desc">Main Birth Chart. Physical reality.</p>
-        </div>
-        <div class="info-card blue-border">
-          <div class="ic-head">
-            <div class="ic-title">💎 D9 Chart</div>
-            <span class="ic-tag tag-rare">Soul</span>
+          <div class="wa-content">
+            <div class="wa-head">
+              <h2>The Isis Integration</h2>
+              <span class="wa-sub">Soul Retrieval</span>
+            </div>
+            <p class="wa-desc">
+              A ritual to call back energy left with ex-lovers or trauma.
+            </p>
+            <div class="wa-steps">
+              <div class="ws-title">
+                <i class="ph-fill ph-sparkle"></i> The Ritual
+              </div>
+              <div class="ws-item">
+                1. <b>Focus:</b> Dark room, white candle. Face North.
+              </div>
+              <div class="ws-item">
+                2. <b>Call:</b> "I call back my power. I am whole."
+              </div>
+              <div class="ws-item">
+                3. <b>Visualize:</b> Golden threads returning to you.
+              </div>
+            </div>
           </div>
-          <p class="ic-desc">Navamsa. Inner strength & Marriage.</p>
         </div>
       </div>
     </div>
@@ -225,7 +285,10 @@
         class="ph ph-planet n-icon"
         onclick="window.location.href='galaxy.html'"
       ></i>
-      <i class="ph-fill ph-scroll n-icon active"></i>
+      <i
+        class="ph-fill ph-scroll n-icon active"
+        onclick="window.location.href='astro-knowledge.html'"
+      ></i>
       <i
         class="ph ph-user n-icon"
         onclick="window.location.href='index.html'"
@@ -238,7 +301,6 @@
           .querySelectorAll(".wiki-section")
           .forEach((el) => el.classList.remove("active"));
         document.getElementById(id).classList.add("active");
-
         document
           .querySelectorAll(".w-tab")
           .forEach((el) => el.classList.remove("active"));
