@@ -7,19 +7,16 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
     <title>Home - Cosmos</title>
-
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
     <link rel="stylesheet" href="global.css" />
     <link rel="stylesheet" href="home.css" />
   </head>
   <body>
     <div class="bg-mesh-purple"></div>
-
     <div class="app-container">
       <div class="header-glass">
         <span class="logo-text">Cosmos</span>
@@ -44,7 +41,7 @@
 
           <div
             class="story-card"
-            onclick="openStory('Urvashi', 'https://i.pravatar.cc/150?img=5', 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=600')"
+            onclick="openStory('Stuti', 'https://i.pravatar.cc/150?img=5', 'https://burst.shopifycdn.com/photos/misty-mountain-ranges-at-sunrise.jpg?width=1000&format=pjpg&exif=0&iptc=0')"
           >
             <div class="sc-inner active">
               <img
@@ -52,20 +49,44 @@
                 class="sc-bg"
               />
             </div>
-            <span class="sc-name">Alexa</span>
+            <span class="sc-name">Stuti Singh</span>
           </div>
 
+          <div
+            class="story-card premium-png"
+            onclick="openStory('Kabir', 'https://i.pravatar.cc/150?img=33', 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600')"
+          >
+            <img
+              src="Gemini_Generated_Image_ncuwjkncuwjkncuw copy.png"
+              class="snake-overlay-img"
+              alt="snake wrap"
+            />
+
+            <div class="sc-inner">
+              <img
+                src="https://i.pinimg.com/236x/89/b2/db/89b2db5b3f1f691be011dd9154b43398.jpg"
+                class="sc-bg"
+              />
+            </div>
+            <span class="sc-name">Kabir singh</span>
+          </div>
           <div
             class="story-card"
             onclick="openStory('Kabir', 'https://i.pravatar.cc/150?img=33', 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600')"
           >
-            <div class="sc-inner active">
+            <img
+              src="Gemini_Generated_Image_ncuwjkncuwjkncuw new.png"
+              class="snake-overlay-img"
+              alt="snake wrap"
+            />
+
+            <div class="sc-inner">
               <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr4VEppUyLB_BjPjCQpi88Z9Qd3Cz-O9XegA&s"
+                src="https://i.pinimg.com/236x/b6/4c/01/b64c012abf57189decd2dd0bd4486601.jpg"
                 class="sc-bg"
               />
             </div>
-            <span class="sc-name">Kabir</span>
+            <span class="sc-name">Yash </span>
           </div>
 
           <div
@@ -91,14 +112,13 @@
               <img src="https://i.pravatar.cc/150?img=5" />
             </div>
             <div class="n-content">
-              <span class="n-msg"><b>Alexa</b> liked your story.</span>
-              <span class="n-time">2m ago</span>
+              <span class="n-msg"><b>Alexa</b> liked your story.</span
+              ><span class="n-time">2m ago</span>
             </div>
             <div class="n-action-icon">
               <i class="ph-fill ph-heart" style="color: #ff3b30"></i>
             </div>
           </div>
-
           <div class="notif-row">
             <div class="n-avi icon">
               <i
@@ -109,11 +129,9 @@
             <div class="n-content">
               <span class="n-msg"
                 ><b>Mars Alert:</b> High conflict energy. Avoid arguments.</span
-              >
-              <span class="n-time">1h ago</span>
+              ><span class="n-time">1h ago</span>
             </div>
           </div>
-
           <div class="notif-row">
             <div class="n-avi">
               <img src="https://i.pravatar.cc/150?img=33" />
@@ -121,8 +139,7 @@
             <div class="n-content">
               <span class="n-msg"
                 ><b>Kabir</b> added you to "Scorpio Gang".</span
-              >
-              <span class="n-time">3h ago</span>
+              ><span class="n-time">3h ago</span>
             </div>
             <div class="n-action-icon">
               <i
@@ -134,110 +151,82 @@
         </div>
       </div>
     </div>
-
     <div id="story-viewer" class="story-overlay">
       <div class="story-progress-bar">
         <div class="sp-fill" id="story-progress"></div>
       </div>
-
       <div class="story-header">
         <div class="sh-user">
-          <img id="st-user-img" src="" />
-          <span id="st-user-name">Username</span>
-          <span class="st-time">3h</span>
+          <img id="st-user-img" src="" /><span id="st-user-name">Username</span
+          ><span class="st-time">3h</span>
         </div>
         <div class="sh-actions">
-          <i class="ph-bold ph-dots-three-vertical"></i>
-          <i class="ph-bold ph-x" onclick="closeStory()"></i>
+          <i class="ph-bold ph-dots-three-vertical"></i
+          ><i class="ph-bold ph-x" onclick="closeStory()"></i>
         </div>
       </div>
-
       <div class="story-content" onclick="nextStory()">
         <img id="st-main-img" src="" />
         <div class="story-gradient"></div>
       </div>
-
       <div class="story-footer">
         <div class="reply-box">
           <input type="text" placeholder="Send message..." />
         </div>
         <button class="like-btn" onclick="likeStory(this)">
-          <i class="ph-bold ph-heart"></i>
-        </button>
-        <button class="share-btn">
+          <i class="ph-bold ph-heart"></i></button
+        ><button class="share-btn">
           <i class="ph-bold ph-paper-plane-right"></i>
         </button>
       </div>
     </div>
-
     <nav class="nav-bar glass-nav">
       <i
         class="ph-fill ph-house n-icon active"
         onclick="window.location.href='home.html'"
-      ></i>
-
-      <i
+      ></i
+      ><i
         class="ph ph-planet n-icon"
         onclick="window.location.href='galaxy.html'"
-      ></i>
-
-      <i
+      ></i
+      ><i
         class="ph ph-scroll n-icon"
         onclick="window.location.href='astro-knowledge.html'"
-      ></i>
-
-      <i
+      ></i
+      ><i
         class="ph ph-user n-icon"
         onclick="window.location.href='index.html'"
       ></i>
     </nav>
-
     <script>
       let storyTimer;
-
-      function openStory(name, avatar, storyImg) {
-        const viewer = document.getElementById("story-viewer");
-        const progress = document.getElementById("story-progress");
-
-        // Set Data
-        document.getElementById("st-user-name").innerText = name;
-        document.getElementById("st-user-img").src = avatar;
-        document.getElementById("st-main-img").src = storyImg;
-
-        // Show Viewer
-        viewer.style.display = "flex";
-
-        // Reset & Start Progress Animation
-        progress.style.transition = "none";
-        progress.style.width = "0%";
-
+      function openStory(n, a, s) {
+        const v = document.getElementById("story-viewer");
+        const p = document.getElementById("story-progress");
+        document.getElementById("st-user-name").innerText = n;
+        document.getElementById("st-user-img").src = a;
+        document.getElementById("st-main-img").src = s;
+        v.style.display = "flex";
+        p.style.transition = "none";
+        p.style.width = "0%";
         setTimeout(() => {
-          progress.style.transition = "width 5s linear";
-          progress.style.width = "100%";
+          p.style.transition = "width 5s linear";
+          p.style.width = "100%";
         }, 50);
-
-        // Auto close after 5s
         clearTimeout(storyTimer);
         storyTimer = setTimeout(closeStory, 5000);
       }
-
       function closeStory() {
-        const viewer = document.getElementById("story-viewer");
-        viewer.style.display = "none";
+        document.getElementById("story-viewer").style.display = "none";
         clearTimeout(storyTimer);
       }
-
-      // Tap to skip (Mock)
       function nextStory() {
         closeStory();
-        // In real app, load next user's story
       }
-
-      function likeStory(btn) {
-        btn.style.color = "#ff3b30";
-        btn.querySelector("i").classList.remove("ph-bold");
-        btn.querySelector("i").classList.add("ph-fill");
-        // Animation effect could be added here
+      function likeStory(b) {
+        b.style.color = "#ff3b30";
+        b.querySelector("i").classList.remove("ph-bold");
+        b.querySelector("i").classList.add("ph-fill");
       }
     </script>
   </body>
