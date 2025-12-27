@@ -108,6 +108,7 @@
   line-height: 1.5;
   margin-bottom: 15px;
 }
+/* --- HIGHLIGHTS (Safari Fixed) --- */
 .highlights-scroll {
   display: flex;
   gap: 15px;
@@ -115,17 +116,23 @@
   overflow-x: auto;
   scrollbar-width: none;
   margin-bottom: 10px;
+  /* iOS Safari Smooth Scrolling */
+  -webkit-overflow-scrolling: touch;
 }
+
 .story-highlight {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 75px;
+  /* Fix: Explicit width taaki Safari expand na kare */
+  width: 70px;
+  min-width: 70px;
   cursor: pointer;
 }
+
 .sh-rect {
   width: 70px;
-  height: 95px;
+  height: 95px; /* Vertical Rectangle */
   border-radius: 18px;
   padding: 2px;
   margin-bottom: 6px;
@@ -135,26 +142,44 @@
   justify-content: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
+
+  /* --- SAFARI FIXES --- */
+  flex-shrink: 0; /* Dabne se rokta hai */
+  overflow: hidden; /* Badi image ko kaat deta hai */
+  position: relative; /* Structure maintain rakhta hai */
 }
+
 .story-highlight:active .sh-rect {
   transform: scale(0.95);
 }
+
 .sh-rect.add-new {
   background: transparent;
   border: 2px dashed #ccc;
   color: #999;
 }
+
 .sh-img {
   width: 100%;
   height: 100%;
   border-radius: 14px;
   border: 3px solid #f2f2f7;
   object-fit: cover;
+
+  /* --- SAFARI FIXES --- */
+  display: block; /* Inline gap hata deta hai */
+  max-width: 100%; /* Parent se bada nahi hone dega */
 }
+
 .s-txt {
   font-size: 11px;
   color: var(--text-main);
   font-weight: 500;
+  white-space: nowrap; /* Text next line mein na toote */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 70px;
+  text-align: center;
 }
 .tabs-bar {
   display: flex;
