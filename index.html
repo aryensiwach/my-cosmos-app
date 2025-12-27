@@ -17,17 +17,14 @@
   </head>
   <body>
     <div class="bg-mesh-purple"></div>
-
     <div class="app-container">
       <div class="top-bar-scroll">
         <button class="menu-btn" onclick="openModal('modal-edit-profile')">
-          <i class="ph ph-list"></i>
-        </button>
-        <button class="menu-btn" onclick="openModal('modal-settings')">
+          <i class="ph ph-list"></i></button
+        ><button class="menu-btn" onclick="openModal('modal-settings')">
           <i class="ph ph-gear"></i>
         </button>
       </div>
-
       <div class="hero-section">
         <div class="dp-wrapper">
           <img
@@ -41,27 +38,23 @@
           <span id="display-name">Aryendra</span>
           <i class="ph-fill ph-seal-check verified-badge"></i>
         </div>
-
         <div class="handle-box">
           <span class="user-handle" id="userid-text">@aryendra_01</span>
           <button class="copy-btn" onclick="copyToClipboard()">
             <i class="ph ph-copy"></i>
           </button>
         </div>
-
         <button
           class="btn-friends glass-btn"
           onclick="window.location.href='friends-list.html'"
         >
           <i class="ph-bold ph-users"></i> View My Circle (342)
         </button>
-
         <div class="stats-row">
           <div class="s-item">
             <div class="s-val"><span id="streak-val">12</span></div>
             <div class="s-lbl">Streak</div>
           </div>
-
           <div class="s-item" onclick="openModal('modal-karma')">
             <div class="s-val" id="karma-val">850</div>
             <div class="s-lbl">
@@ -69,12 +62,10 @@
             </div>
           </div>
         </div>
-
         <p class="bio-text" id="display-bio">
           Loves Working out , reading books , and coding .
         </p>
       </div>
-
       <div class="highlights-scroll" id="highlights-container">
         <div
           class="story-highlight"
@@ -114,7 +105,6 @@
           <span class="s-txt">Friends</span>
         </div>
       </div>
-
       <div class="tabs-bar">
         <div class="tab-btn active" onclick="switchView('card', this)">
           <i class="ph ph-cards"></i>
@@ -123,19 +113,17 @@
           <i class="ph ph-sparkle"></i>
         </div>
       </div>
-
       <div id="card" class="view-container active">
         <div class="daily-insight-card glass-card-full">
           <div class="di-header">
-            <span class="di-title"><i class="ph-fill"></i> Daily Insight</span>
-            <span class="di-date" id="current-date">Today</span>
+            <span class="di-title"><i class="ph-fill"></i> Daily Insight</span
+            ><span class="di-date" id="current-date">Today</span>
           </div>
           <p class="di-text">
             "Moon in Pisces enhances your intuition today. Trust your gut with
             code and people."
           </p>
         </div>
-
         <div class="cosmic-identity-card" id="main-identity-card">
           <div class="cosmic-grid-bg"></div>
           <div class="id-header">
@@ -149,8 +137,8 @@
                 <i
                   class="ph-fill ph-lightning"
                   style="color: var(--apple-green)"
-                ></i>
-                <span class="big-txt" id="energy-val">72%</span>
+                ></i
+                ><span class="big-txt" id="energy-val">72%</span>
               </div>
               <div class="mini-bar">
                 <div class="fill" id="energy-bar" style="width: 72%"></div>
@@ -162,8 +150,8 @@
                 <i
                   class="ph-fill ph-clover"
                   style="color: var(--apple-orange)"
-                ></i>
-                <span class="big-txt">7</span>
+                ></i
+                ><span class="big-txt">7</span>
               </div>
               <div class="mini-bar">
                 <div
@@ -196,7 +184,6 @@
           </div>
           <div class="holo-shine"></div>
         </div>
-
         <span class="section-head">Vimshottari Dasha Status</span>
         <div class="dasha-wrapper glass-card-full">
           <div class="dasha-row md">
@@ -266,15 +253,13 @@
             </div>
           </div>
         </div>
-
         <div class="daily-scan-wrapper">
           <button class="btn-daily-scan" onclick="performDailyScan(this)">
-            <i class="ph-bold ph-fingerprint-simple"></i>
-            <span class="scan-text">Analyze Today's Alignment</span>
+            <i class="ph-bold ph-fingerprint-simple"></i
+            ><span class="scan-text">Analyze Today's Alignment</span>
           </button>
           <p class="scan-subtext">Tap to sync energy & increase streak</p>
         </div>
-
         <span class="section-head">Planetary Alignment</span>
         <div class="planet-slider">
           <div class="p-card glass-card-full">
@@ -310,7 +295,6 @@
             <div class="p-val">Saturn</div>
           </div>
         </div>
-
         <span class="section-head">Kundli Yogas</span>
         <div class="yoga-item glass-list">
           <div class="y-info">
@@ -326,7 +310,6 @@
           <div class="y-meta"><span class="y-rare">rare</span></div>
         </div>
       </div>
-
       <div id="ai" class="view-container">
         <div class="ai-wrapper glass-panel">
           <div class="ai-header">
@@ -336,8 +319,7 @@
                 style="color: var(--apple-blue)"
               ></i>
               Gemini Analysis</span
-            >
-            <button class="copy-btn" onclick="resetChat()">
+            ><button class="copy-btn" onclick="resetChat()">
               <i class="ph ph-trash"></i>
             </button>
           </div>
@@ -356,8 +338,11 @@
               <i class="ph-bold ph-plus"></i>
             </button>
             <div class="text-field-wrapper">
-              <input type="text" class="c-input" placeholder="Ask AI..." />
-              <button class="mic-btn">
+              <input
+                type="text"
+                class="c-input"
+                placeholder="Ask AI..."
+              /><button class="mic-btn">
                 <i class="ph-fill ph-microphone"></i>
               </button>
             </div>
@@ -368,36 +353,35 @@
         </div>
       </div>
     </div>
-
     <nav class="nav-bar glass-nav">
       <i
         class="ph ph-house n-icon"
         onclick="window.location.href='home.html'"
-      ></i>
-      <i
+      ></i
+      ><i
         class="ph ph-planet n-icon"
         onclick="window.location.href='galaxy.html'"
-      ></i>
-      <i
+      ></i
+      ><i
         class="ph ph-scroll n-icon"
         onclick="window.location.href='astro-knowledge.html'"
-      ></i>
-      <i
+      ></i
+      ><i
         class="ph-fill ph-user n-icon active"
         onclick="window.location.href='index.html'"
       ></i>
     </nav>
-
     <div id="modal-edit-profile" class="modal-overlay">
       <div class="modal-content glass-card-full">
         <h3>Edit Profile</h3>
         <div class="edit-form">
           <div class="dp-edit-wrap">
-            <img src="https://i.pravatar.cc/300?img=11" id="edit-dp-preview" />
-            <label for="dp-upload" class="dp-cam"
-              ><i class="ph-bold ph-camera"></i
-            ></label>
-            <input
+            <img
+              src="https://i.pravatar.cc/300?img=11"
+              id="edit-dp-preview"
+            /><label for="dp-upload" class="dp-cam"
+              ><i class="ph-bold ph-camera"></i></label
+            ><input
               type="file"
               id="dp-upload"
               hidden
@@ -411,8 +395,7 @@
             id="edit-name"
             placeholder="Name"
             value="Aryendra"
-          />
-          <input
+          /><input
             type="text"
             class="modal-input"
             id="edit-bio"
@@ -420,29 +403,28 @@
             value="Loves Working out , reading books , and coding ."
           />
           <div class="row-inputs">
-            <input type="date" class="modal-input" id="edit-dob" />
-            <input type="time" class="modal-input" id="edit-time" />
+            <input type="date" class="modal-input" id="edit-dob" /><input
+              type="time"
+              class="modal-input"
+              id="edit-time"
+            />
           </div>
           <input
             type="text"
             class="modal-input"
             id="edit-location"
             placeholder="Birth Location"
-          />
-          <select class="modal-input" id="edit-gender">
+          /><select class="modal-input" id="edit-gender">
             <option value="Male">Male</option>
-            <option value="Female">Female</option>
-          </select>
-          <button class="btn-primary" onclick="saveProfile()">
-            Save Changes
-          </button>
-          <button class="btn-text" onclick="closeModal('modal-edit-profile')">
+            <option value="Female">Female</option></select
+          ><button class="btn-primary" onclick="saveProfile()">
+            Save Changes</button
+          ><button class="btn-text" onclick="closeModal('modal-edit-profile')">
             Cancel
           </button>
         </div>
       </div>
     </div>
-
     <div id="modal-settings" class="modal-overlay">
       <div class="modal-content glass-card-full">
         <h3>Settings</h3>
@@ -451,23 +433,18 @@
             class="setting-item text-red"
             onclick="alert('Logged Out!');closeModal('modal-settings')"
           >
-            <i class="ph ph-sign-out"></i> Logout
-          </button>
-
-          <button
+            <i class="ph ph-sign-out"></i> Logout</button
+          ><button
             class="setting-item text-red"
             onclick="alert('Account Deleted!');closeModal('modal-settings')"
           >
-            <i class="ph ph-trash"></i> Delete Account
-          </button>
-
-          <button class="btn-text" onclick="closeModal('modal-settings')">
+            <i class="ph ph-trash"></i> Delete Account</button
+          ><button class="btn-text" onclick="closeModal('modal-settings')">
             Close
           </button>
         </div>
       </div>
     </div>
-
     <div id="modal-karma" class="modal-overlay">
       <div class="modal-content glass-card-full">
         <h3><i class="ph-fill ph-star"></i> Earn Karma</h3>
@@ -490,7 +467,6 @@
         </button>
       </div>
     </div>
-
     <div id="modal-create-highlight" class="modal-overlay">
       <div class="modal-content glass-card-full">
         <h3>New Highlight</h3>
@@ -499,14 +475,15 @@
           class="modal-input"
           id="new-highlight-name"
           placeholder="Highlight Name (e.g. Gym)"
-        />
-        <button class="btn-primary" onclick="createHighlight()">Create</button>
-        <button class="btn-text" onclick="closeModal('modal-create-highlight')">
+        /><button class="btn-primary" onclick="createHighlight()">Create</button
+        ><button
+          class="btn-text"
+          onclick="closeModal('modal-create-highlight')"
+        >
           Cancel
         </button>
       </div>
     </div>
-
     <div id="modal-view-highlight" class="modal-overlay">
       <div class="modal-content glass-card-full">
         <div class="hl-header">
@@ -525,8 +502,7 @@
             hidden
             accept="image/*"
             onchange="addPhotoToHighlight(this)"
-          />
-          <button
+          /><button
             class="btn-secondary"
             onclick="document.getElementById('hl-upload').click()"
           >
