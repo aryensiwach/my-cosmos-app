@@ -128,7 +128,7 @@
   border: 1px solid rgba(255, 59, 48, 0.2);
 }
 
-/* --- HIGHLIGHTS --- */
+/* --- HIGHLIGHTS (RECTANGLE UPDATE) --- */
 .highlights-scroll {
   display: flex;
   gap: 15px;
@@ -136,38 +136,44 @@
   overflow-x: auto;
   scrollbar-width: none;
 }
-.story-circle {
+.story-highlight {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 64px;
+  min-width: 75px;
+  cursor: pointer;
 }
-.s-ring {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
+.sh-rect {
+  width: 70px;
+  height: 95px; /* Vertical Rectangle */
+  border-radius: 18px;
   padding: 2px;
+  margin-bottom: 6px;
+  background: linear-gradient(
+    45deg,
+    #f09433,
+    #bc1888
+  ); /* Instagram-ish Gradient */
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
 }
-.s-ring.active {
-  background: linear-gradient(45deg, var(--apple-blue), var(--apple-purple));
+.story-highlight:active .sh-rect {
+  transform: scale(0.95);
 }
-.s-ring.seen {
-  border: 2px solid #ddd;
-}
-.s-img {
+.sh-img {
   width: 100%;
   height: 100%;
-  border-radius: 50%;
-  border: 2px solid white;
+  border-radius: 14px;
+  border: 3px solid #f2f2f7; /* Gap */
   object-fit: cover;
 }
 .s-txt {
   font-size: 10px;
   color: var(--text-main);
-  margin-top: 4px;
+  font-weight: 500;
 }
 
 /* --- PREMIUM CARD --- */

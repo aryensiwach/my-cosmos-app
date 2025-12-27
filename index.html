@@ -61,9 +61,12 @@
             <div class="s-val"><span id="streak-val">12</span></div>
             <div class="s-lbl">Streak</div>
           </div>
+
           <div class="s-item" onclick="openModal('modal-karma')">
             <div class="s-val" id="karma-val">850</div>
-            <div class="s-lbl">Karma</div>
+            <div class="s-lbl">
+              Karma <i class="ph-bold ph-caret-right action-indicator"></i>
+            </div>
           </div>
         </div>
 
@@ -73,35 +76,38 @@
       </div>
 
       <div class="highlights-scroll" id="highlights-container">
-        <div class="story-circle" onclick="openModal('modal-create-highlight')">
-          <div class="s-ring add-new"><i class="ph-bold ph-plus"></i></div>
+        <div
+          class="story-highlight"
+          onclick="openModal('modal-create-highlight')"
+        >
+          <div class="sh-rect add-new"><i class="ph-bold ph-plus"></i></div>
           <span class="s-txt">Add</span>
         </div>
-        <div class="story-circle" onclick="viewHighlight('Travel')">
-          <div class="s-ring">
+        <div class="story-highlight" onclick="viewHighlight('Travel')">
+          <div class="sh-rect">
             <img
               src="https://img.freepik.com/free-vector/nature-instagram-highlight-cover-flower-doodle-earth-tone-design-vector_53876-151396.jpg"
-              class="s-img"
+              class="sh-img"
               id="cover-Travel"
             />
           </div>
           <span class="s-txt">Travel</span>
         </div>
-        <div class="story-circle" onclick="viewHighlight('Me')">
-          <div class="s-ring">
+        <div class="story-highlight" onclick="viewHighlight('Me')">
+          <div class="sh-rect">
             <img
               src="https://i.pinimg.com/736x/fe/d9/59/fed9593b55cacad8fb0d4c7bddfa5695.jpg"
-              class="s-img"
+              class="sh-img"
               id="cover-Me"
             />
           </div>
           <span class="s-txt">Me</span>
         </div>
-        <div class="story-circle" onclick="viewHighlight('Friends')">
-          <div class="s-ring">
+        <div class="story-highlight" onclick="viewHighlight('Friends')">
+          <div class="sh-rect">
             <img
               src="https://i.pinimg.com/736x/89/55/60/895560377854236392fd5cf03598f45b.jpg"
-              class="s-img"
+              class="sh-img"
               id="cover-Friends"
             />
           </div>
@@ -447,12 +453,14 @@
           >
             <i class="ph ph-sign-out"></i> Logout
           </button>
+
           <button
             class="setting-item text-red"
             onclick="alert('Account Deleted!');closeModal('modal-settings')"
           >
             <i class="ph ph-trash"></i> Delete Account
           </button>
+
           <button class="btn-text" onclick="closeModal('modal-settings')">
             Close
           </button>

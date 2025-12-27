@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Cosmic Store</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="global.css" />
+    <style>
+      /* --- HEADER & NAV --- */
+      .store-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+      }
+      .back-btn-glass {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-main);
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s;
+      }
+      .back-btn-glass:active {
+        transform: scale(0.9);
+      }
+
+      .st-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--text-main);
+      }
+
+      /* --- SLEEK KARMA CARD --- */
+      .karma-hero {
+        margin: 10px 20px 25px 20px;
+        background: linear-gradient(135deg, #1e3c72, #2a5298);
+        border-radius: 24px;
+        padding: 30px;
+        color: white;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(42, 82, 152, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      /* Animated Glow Effect */
+      .kh-glow {
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 0%,
+          transparent 70%
+        );
+        animation: rotateGlow 10s linear infinite;
+      }
+      .kh-content {
+        position: relative;
+        z-index: 2;
+      }
+      .kh-label {
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        opacity: 0.7;
+        margin-bottom: 5px;
+      }
+      .kh-balance {
+        font-size: 42px;
+        font-weight: 800;
+        letter-spacing: -1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
+      .kh-balance i {
+        color: #ffd700;
+        font-size: 32px;
+      }
+
+      /* --- TABS --- */
+      .store-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        margin-bottom: 20px;
+      }
+      .tab-item {
+        font-size: 13px;
+        font-weight: 600;
+        color: #999;
+        padding: 8px 12px;
+        cursor: pointer;
+        position: relative;
+        transition: 0.3s;
+      }
+      .tab-item.active {
+        color: var(--text-main);
+      }
+      .tab-item.active::after {
+        content: "";
+        position: absolute;
+        bottom: -11px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: var(--text-main);
+        border-radius: 10px 10px 0 0;
+      }
+
+      /* --- GRID & LISTS --- */
+      .view-section {
+        display: none;
+        padding: 0 20px 100px 20px;
+        animation: fadeIn 0.4s ease;
+      }
+      .view-section.active {
+        display: block;
+      }
+      .skins-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+      }
+
+      /* --- SKIN CARD --- */
+      .skin-card {
+        background: white;
+        border-radius: 20px;
+        padding: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+      }
+      .sc-preview {
+        width: 100%;
+        aspect-ratio: 3/4;
+        background: #f4f6f8;
+        border-radius: 14px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .mock-story {
+        width: 55%;
+        height: 75%;
+        background: #e0e0e0;
+        border-radius: 8px;
+        position: relative;
+      }
+      .sc-info h4 {
+        margin: 0;
+        font-size: 13px;
+        color: var(--text-main);
+      }
+      .sc-info p {
+        margin: 2px 0 8px 0;
+        font-size: 10px;
+        color: #888;
+      }
+      .sc-price {
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--apple-blue);
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .btn-buy {
+        margin-top: 10px;
+        width: 100%;
+        padding: 10px;
+        background: var(--text-main);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      /* --- EARN MILESTONES (NEW) --- */
+      .milestone-card {
+        background: white;
+        padding: 16px;
+        border-radius: 18px;
+        margin-bottom: 12px;
+        border: 1px solid rgba(0, 0, 0, 0.03);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+      }
+      .mc-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+      .mc-title {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--text-main);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .mc-reward {
+        font-size: 12px;
+        font-weight: 700;
+        color: #daa520;
+        background: rgba(218, 165, 32, 0.1);
+        padding: 4px 10px;
+        border-radius: 20px;
+      }
+
+      .progress-track {
+        width: 100%;
+        height: 6px;
+        background: #f0f0f0;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 8px;
+      }
+      .progress-fill {
+        height: 100%;
+        background: #34c759;
+        border-radius: 10px;
+        width: 0%;
+        transition: width 1s ease;
+      }
+
+      .mc-footer {
+        display: flex;
+        justify-content: space-between;
+        font-size: 10px;
+        color: #888;
+        font-weight: 600;
+      }
+      .btn-claim {
+        background: #e0e0e0;
+        color: #999;
+        border: none;
+        padding: 6px 16px;
+        border-radius: 8px;
+        font-size: 11px;
+        font-weight: 600;
+        margin-top: 10px;
+        width: 100%;
+        cursor: not-allowed;
+      }
+      .btn-claim.active {
+        background: var(--text-main);
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      @keyframes rotateGlow {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-mesh-purple"></div>
+    <div class="app-container">
+      <div class="store-header">
+        <div class="back-btn-glass" onclick="window.history.back()">
+          <i class="ph-bold ph-caret-left" style="font-size: 18px"></i>
+        </div>
+        <div class="st-title">Cosmic Store</div>
+        <div style="width: 40px"></div>
+      </div>
+
+      <div class="karma-hero">
+        <div class="kh-glow"></div>
+        <div class="kh-content">
+          <div class="kh-label">Karma Balance</div>
+          <div class="kh-balance"><i class="ph-fill ph-diamond"></i> 1,250</div>
+        </div>
+      </div>
+
+      <div class="store-tabs">
+        <div class="tab-item active" onclick="switchTab('shop', this)">
+          Story Skins
+        </div>
+        <div class="tab-item" onclick="switchTab('myskins', this)">
+          My Skins
+        </div>
+        <div class="tab-item" onclick="switchTab('earn', this)">Earn Karma</div>
+      </div>
+
+      <div id="shop" class="view-section active">
+        <div class="skins-grid">
+          <div class="skin-card">
+            <div class="sc-preview">
+              <div class="mock-story"></div>
+              <img
+                src="https://pngimg.com/d/snake_PNG4072.png"
+                style="position: absolute; width: 90px"
+              />
+            </div>
+            <div class="sc-info">
+              <h4>Golden Serpent</h4>
+              <p>Premium Overlay</p>
+            </div>
+            <div class="sc-price"><i class="ph-fill ph-diamond"></i> 500</div>
+            <button class="btn-buy" onclick="alert('Bought!')">Get It</button>
+          </div>
+
+          <div class="skin-card">
+            <div class="sc-preview">
+              <div
+                class="mock-story"
+                style="border: 2px solid #00f0ff; box-shadow: 0 0 15px #00f0ff"
+              ></div>
+            </div>
+            <div class="sc-info">
+              <h4>Cyber Neon</h4>
+              <p>Glowing Border</p>
+            </div>
+            <div class="sc-price"><i class="ph-fill ph-diamond"></i> 350</div>
+            <button class="btn-buy" onclick="alert('Bought!')">Get It</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="myskins" class="view-section">
+        <div class="skins-grid">
+          <div class="skin-card">
+            <div class="sc-preview">
+              <div class="mock-story" style="border: 1px solid #ddd"></div>
+            </div>
+            <div class="sc-info">
+              <h4>Default</h4>
+              <p>Standard</p>
+            </div>
+            <button class="btn-buy" style="background: #34c759">
+              Equipped
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="earn" class="view-section">
+        <div class="milestone-card">
+          <div class="mc-header">
+            <div class="mc-title">
+              <i class="ph-fill ph-users"></i> Make 5 Friends
+            </div>
+            <div class="mc-reward">+100 💎</div>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" style="width: 60%"></div>
+          </div>
+          <div class="mc-footer">
+            <span>3 / 5 Friends</span>
+            <span>In Progress</span>
+          </div>
+          <button class="btn-claim">Claim Reward</button>
+        </div>
+
+        <div class="milestone-card">
+          <div class="mc-header">
+            <div class="mc-title">
+              <i class="ph-fill ph-users-three"></i> Make 10 Friends
+            </div>
+            <div class="mc-reward">+250 💎</div>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" style="width: 30%"></div>
+          </div>
+          <div class="mc-footer">
+            <span>3 / 10 Friends</span>
+            <span>Locked</span>
+          </div>
+          <button class="btn-claim">Claim Reward</button>
+        </div>
+
+        <div class="milestone-card">
+          <div class="mc-header">
+            <div class="mc-title">
+              <i class="ph-fill ph-users-four"></i> Make 20 Friends
+            </div>
+            <div class="mc-reward">+500 💎</div>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" style="width: 15%"></div>
+          </div>
+          <div class="mc-footer">
+            <span>3 / 20 Friends</span>
+            <span>Locked</span>
+          </div>
+          <button class="btn-claim">Claim Reward</button>
+        </div>
+
+        <div class="milestone-card">
+          <div class="mc-header">
+            <div class="mc-title">
+              <i class="ph-fill ph-fire"></i> 7 Day Streak
+            </div>
+            <div class="mc-reward">+50 💎</div>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" style="width: 100%"></div>
+          </div>
+          <div class="mc-footer">
+            <span>7 / 7 Days</span>
+            <span style="color: #34c759">Completed</span>
+          </div>
+          <button
+            class="btn-claim active"
+            onclick="this.innerText='Claimed';this.classList.remove('active');this.style.background='#ccc'"
+          >
+            Claim Reward
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <nav class="nav-bar glass-nav">
+      <i
+        class="ph ph-house n-icon"
+        onclick="window.location.href='home.html'"
+      ></i>
+      <i
+        class="ph ph-planet n-icon"
+        onclick="window.location.href='galaxy.html'"
+      ></i>
+      <i
+        class="ph ph-scroll n-icon"
+        onclick="window.location.href='astro-knowledge.html'"
+      ></i>
+      <i
+        class="ph ph-user n-icon"
+        onclick="window.location.href='index.html'"
+      ></i>
+    </nav>
+
+    <script>
+      function switchTab(v, t) {
+        document
+          .querySelectorAll(".view-section")
+          .forEach((e) => e.classList.remove("active"));
+        document.getElementById(v).classList.add("active");
+        document
+          .querySelectorAll(".tab-item")
+          .forEach((e) => e.classList.remove("active"));
+        t.classList.add("active");
+      }
+    </script>
+  </body>
+</html>
