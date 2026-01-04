@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
-    <title>Profile - Cosmic Social</title>
+    <title>My Profile</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
@@ -17,503 +17,280 @@
   </head>
   <body>
     <div class="bg-mesh-purple"></div>
+
     <div class="app-container">
       <div class="top-bar-scroll">
         <button class="menu-btn" onclick="openModal('modal-edit-profile')">
-          <i class="ph ph-list"></i></button
-        ><button class="menu-btn" onclick="openModal('modal-settings')">
-          <i class="ph ph-gear"></i>
+          <i class="ph-bold ph-list"></i>
+        </button>
+        <button class="menu-btn" onclick="openModal('modal-settings')">
+          <i class="ph-bold ph-gear"></i>
         </button>
       </div>
+
       <div class="hero-section">
-        <div class="dp-wrapper">
+        <div class="dp-wrapper-clean">
           <img
-            src="https://img.freepik.com/free-photo/vertical-shot-smiling-stylish-man-with-tattooed-arms_181624-51988.jpg?semt=ais_hybrid&w=740&q=80"
-            class="dp-img"
-            id="user-dp"
+            src="https://img.freepik.com/free-photo/vertical-shot-smiling-stylish-man-with-tattooed-arms_181624-51988.jpg"
+            class="user-dp"
           />
           <div class="status-dot"></div>
         </div>
-        <div class="user-name">
-          <span id="display-name">Aryendra</span>
-          <i class="ph-fill ph-seal-check verified-badge"></i>
+
+        <div class="user-info-block">
+          <h2 class="user-name">
+            Aryendra <i class="ph-fill ph-seal-check verified-badge"></i>
+          </h2>
+          <span class="user-handle">@aryendra_01</span>
         </div>
-        <div class="handle-box">
-          <span class="user-handle" id="userid-text">@aryendra_01</span>
-          <button class="copy-btn" onclick="copyToClipboard()">
-            <i class="ph ph-copy"></i>
-          </button>
-        </div>
-        <button
-          class="btn-friends glass-btn"
-          onclick="window.location.href='friends-list.html'"
-        >
-          <i class="ph-bold ph-users"></i> View My Circle (342)
-        </button>
+
         <div class="stats-row">
           <div class="s-item">
-            <div class="s-val"><span id="streak-val">12</span></div>
-            <div class="s-lbl">Streak</div>
+            <span class="s-val">Scorpio</span><span class="s-lbl">Moon 🔥</span>
           </div>
-          <div class="s-item" onclick="openModal('modal-karma')">
-            <div class="s-val" id="karma-val">850</div>
-            <div class="s-lbl">
-              Karma <i class="ph-bold ph-caret-right action-indicator"></i>
-            </div>
+          <div class="s-divider"></div>
+          <div class="s-item">
+            <span class="s-val">Gemini</span><span class="s-lbl">Sun ☀️</span>
+          </div>
+          <div class="s-divider"></div>
+          <div class="s-item" onclick="switchTab('karma')">
+            <span class="s-val">850</span><span class="s-lbl">Karma 🪙</span>
           </div>
         </div>
-        <p class="bio-text" id="display-bio">
-          Loves Working out , reading books , and coding .
+
+        <button
+          class="btn-view-circle"
+          onclick="window.location.href='friends-list.html'"
+        >
+          <div class="avatars-stack">
+            <img src="https://i.pravatar.cc/100?img=1" />
+            <img src="https://i.pravatar.cc/100?img=2" />
+            <img src="https://i.pravatar.cc/100?img=3" />
+          </div>
+          <span>View My Circle (342)</span>
+          <i class="ph-bold ph-caret-right"></i>
+        </button>
+
+        <p class="bio-text">
+          Loves working out, reading books, and decoding the universe with code.
+          🌌
         </p>
       </div>
-      <div class="highlights-scroll" id="highlights-container">
+
+      <div class="section-head">MEMORIES</div>
+      <div class="highlights-scroll">
         <div
-          class="story-highlight"
+          class="story-highlight add-new"
           onclick="openModal('modal-create-highlight')"
         >
-          <div class="sh-rect add-new"><i class="ph-bold ph-plus"></i></div>
-          <span class="s-txt">Add</span>
+          <div class="sh-rect plus-rect"><i class="ph-bold ph-plus"></i></div>
+          <span class="s-txt">New</span>
         </div>
-        <div class="story-highlight" onclick="viewHighlight('Travel')">
+        <div class="story-highlight">
           <div class="sh-rect">
             <img
               src="https://img.freepik.com/free-vector/nature-instagram-highlight-cover-flower-doodle-earth-tone-design-vector_53876-151396.jpg"
               class="sh-img"
-              id="cover-Travel"
             />
           </div>
           <span class="s-txt">Travel</span>
         </div>
-        <div class="story-highlight" onclick="viewHighlight('Me')">
+        <div class="story-highlight">
           <div class="sh-rect">
             <img
               src="https://i.pinimg.com/736x/fe/d9/59/fed9593b55cacad8fb0d4c7bddfa5695.jpg"
               class="sh-img"
-              id="cover-Me"
             />
           </div>
           <span class="s-txt">Me</span>
         </div>
-        <div class="story-highlight" onclick="viewHighlight('Friends')">
+        <div class="story-highlight">
           <div class="sh-rect">
             <img
               src="https://i.pinimg.com/736x/89/55/60/895560377854236392fd5cf03598f45b.jpg"
               class="sh-img"
-              id="cover-Friends"
             />
           </div>
           <span class="s-txt">Friends</span>
         </div>
       </div>
-      <div class="tabs-bar">
-        <div class="tab-btn active" onclick="switchView('card', this)">
-          <i class="ph ph-cards"></i>
+
+      <div class="tabs-container">
+        <div class="tab-btn active" id="btn-ai" onclick="switchTab('ai')">
+          <i class="ph-fill ph-sparkle"></i> Gemini AI
         </div>
-        <div class="tab-btn" onclick="switchView('ai', this)">
-          <i class="ph ph-sparkle"></i>
-        </div>
-      </div>
-      <div id="card" class="view-container active">
-        <div class="daily-insight-card glass-card-full">
-          <div class="di-header">
-            <span class="di-title"><i class="ph-fill"></i> Daily Insight</span
-            ><span class="di-date" id="current-date">Today</span>
-          </div>
-          <p class="di-text">
-            "Moon in Pisces enhances your intuition today. Trust your gut with
-            code and people."
-          </p>
-        </div>
-        <div class="cosmic-identity-card" id="main-identity-card">
-          <div class="cosmic-grid-bg"></div>
-          <div class="id-header">
-            <div class="zodiac-badge"><span class="z-icon"></span> Gemini</div>
-            <span class="arch-tag">Daily Analysis</span>
-          </div>
-          <div class="id-main-stats">
-            <div class="stat-block energy">
-              <span class="lbl">Prana Energy</span>
-              <div class="val-row">
-                <i
-                  class="ph-fill ph-lightning"
-                  style="color: var(--apple-green)"
-                ></i
-                ><span class="big-txt" id="energy-val">72%</span>
-              </div>
-              <div class="mini-bar">
-                <div class="fill" id="energy-bar" style="width: 72%"></div>
-              </div>
-            </div>
-            <div class="stat-block luck">
-              <span class="lbl">Lucky Number </span>
-              <div class="val-row">
-                <i
-                  class="ph-fill ph-clover"
-                  style="color: var(--apple-orange)"
-                ></i
-                ><span class="big-txt">7</span>
-              </div>
-              <div class="mini-bar">
-                <div
-                  class="fill"
-                  style="width: 70%; background: var(--apple-orange)"
-                ></div>
-              </div>
-            </div>
-          </div>
-          <div class="id-footer">
-            <div class="aura-section">
-              <span class="lbl">Aura Spectrum</span>
-              <div class="aura-strip">
-                <div
-                  class="color-bit"
-                  style="background: #ff453a; flex: 2"
-                ></div>
-                <div
-                  class="color-bit"
-                  style="background: #3e7c62; flex: 1"
-                ></div>
-                <div
-                  class="color-bit"
-                  style="background: #0a84ff; flex: 3"
-                ></div>
-                <div class="color-bit" style="background: #333; flex: 1"></div>
-              </div>
-              <span class="aura-name">Mystic Red & Indigo</span>
-            </div>
-          </div>
-          <div class="holo-shine"></div>
-        </div>
-        <span class="section-head">Vimshottari Dasha Status</span>
-        <div class="dasha-wrapper glass-card-full">
-          <div class="dasha-row md">
-            <div class="d-icon-box" style="background: #fff9e6; color: #ffcc00">
-              <i class="ph-fill ph-planet"></i>
-            </div>
-            <div class="d-info">
-              <div class="d-top">
-                <span class="d-name">Jupiter (Guru)</span
-                ><span class="d-badge" style="background: #eee; color: #333"
-                  >Mahadasha</span
-                >
-              </div>
-              <div class="d-dates">Aug 15,2005 - Dec 15, 2025</div>
-              <div class="d-track">
-                <div
-                  class="d-fill"
-                  style="width: 65%; background: #00c020"
-                ></div>
-              </div>
-            </div>
-          </div>
-          <div class="dasha-connector"></div>
-          <div class="dasha-row ad">
-            <div class="d-icon-box" style="background: #f2f2f7; color: #666">
-              <i class="ph-fill ph-spiral"></i>
-            </div>
-            <div class="d-info">
-              <div class="d-top">
-                <span class="d-name">Saturn (Shani)</span
-                ><span class="d-badge" style="background: #eee; color: #333"
-                  >Antardasha</span
-                >
-              </div>
-              <div class="d-dates">Jan 20,2022 - May 20, 2026</div>
-              <div class="d-track">
-                <div
-                  class="d-fill"
-                  style="width: 80%; background: #ff3b30"
-                ></div>
-              </div>
-            </div>
-          </div>
-          <div class="dasha-connector"></div>
-          <div class="dasha-row pd">
-            <div class="d-icon-box" style="background: #ffe5e5; color: #ff3b30">
-              <i class="ph-fill ph-fire"></i>
-            </div>
-            <div class="d-info">
-              <div class="d-top">
-                <span class="d-name">Mars (Mangal)</span
-                ><span
-                  class="d-badge"
-                  style="background: #ffe5e5; color: #ff3b30"
-                  >Current PD</span
-                >
-              </div>
-              <div class="d-dates" style="color: #ff3b30; font-weight: 600">
-                Ends in 12 Days
-              </div>
-              <div class="d-track">
-                <div
-                  class="d-fill"
-                  style="width: 40%; background: #ff3b30"
-                ></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="daily-scan-wrapper">
-          <button class="btn-daily-scan" onclick="performDailyScan(this)">
-            <i class="ph-bold ph-fingerprint-simple"></i
-            ><span class="scan-text">Analyze Today's Alignment</span>
-          </button>
-          <p class="scan-subtext">Tap to sync energy & increase streak</p>
-        </div>
-        <span class="section-head">Planetary Alignment</span>
-        <div class="planet-slider">
-          <div class="p-card glass-card-full">
-            <div class="h-label">Ascendant</div>
-            <div class="p-val">4 (Moon)</div>
-          </div>
-          <div class="p-card glass-card-full">
-            <div class="h-label">1st House</div>
-            <div class="p-val">Sun, Venus</div>
-          </div>
-          <div class="p-card glass-card-full">
-            <div class="h-label">2nd house</div>
-            <div class="p-val">Jupiter, Mercury</div>
-          </div>
-          <div class="p-card glass-card-full">
-            <div class="h-label">5th house</div>
-            <div class="p-val">Rahu</div>
-          </div>
-          <div class="p-card glass-card-full">
-            <div class="h-label">8th house</div>
-            <div class="p-val">Mars</div>
-          </div>
-          <div class="p-card glass-card-full">
-            <div class="h-label">9th house</div>
-            <div class="p-val">Moon</div>
-          </div>
-          <div class="p-card glass-card-full">
-            <div class="h-label">11th house</div>
-            <div class="p-val">Ketu</div>
-          </div>
-          <div class="p-card glass-card-full">
-            <div class="h-label">12th house</div>
-            <div class="p-val">Saturn</div>
-          </div>
-        </div>
-        <span class="section-head">Kundli Yogas</span>
-        <div class="yoga-item glass-list">
-          <div class="y-info">
-            <h4>Raja yoga</h4>
-            <p>Wealth & Fame generator.</p>
-          </div>
-        </div>
-        <div class="yoga-item glass-list">
-          <div class="y-info">
-            <h4>Lagan in 9th house</h4>
-            <p>super Lucky.</p>
-          </div>
-          <div class="y-meta"><span class="y-rare">rare</span></div>
+        <div class="tab-btn" id="btn-karma" onclick="switchTab('karma')">
+          <i class="ph-fill ph-star"></i> Karma
         </div>
       </div>
-      <div id="ai" class="view-container">
-        <div class="ai-wrapper glass-panel">
-          <div class="ai-header">
-            <span class="ai-head-title"
-              ><i
-                class="ph-fill ph-sparkle"
-                style="color: var(--apple-blue)"
-              ></i>
-              Gemini Analysis</span
-            ><button class="copy-btn" onclick="resetChat()">
-              <i class="ph ph-trash"></i>
-            </button>
+
+      <div id="view-ai" class="tab-content active">
+        <div class="chat-interface glass-panel">
+          <div class="chat-header-small">
+            <span>Today's Guidance</span>
+            <span class="date-badge">Today</span>
           </div>
-          <div class="chat-area">
-            <div class="msg ai">
-              Ask what you want , i can Analyse it for you.
+
+          <div class="chat-scroll-area">
+            <div class="message ai-msg">
+              <div class="msg-avatar"><i class="ph-fill ph-sparkle"></i></div>
+              <div class="msg-bubble">
+                Aryendra, aaj Moon strong hai. Intuition high rahegi. Focus on
+                coding today! 🚀
+              </div>
             </div>
           </div>
-          <div class="suggestions">
-            <div class="chip">Health Forecast</div>
-            <div class="chip">Love Timeline</div>
-            <div class="chip">Money Blocks</div>
+
+          <div class="chat-suggestions">
+            <div class="s-chip">Health Forecast 🩺</div>
+            <div class="s-chip">Love Life ❤️</div>
+            <div class="s-chip">Past Life 🌌</div>
+            <div class="s-chip">Money 💰</div>
+            <div class="s-chip">Career 💼</div>
           </div>
-          <div class="input-bar">
-            <button class="btn-circle-icon">
-              <i class="ph-bold ph-plus"></i>
+
+          <div class="chat-input-bar">
+            <button class="mic-btn">
+              <i class="ph-fill ph-microphone"></i>
             </button>
-            <div class="text-field-wrapper">
-              <input
-                type="text"
-                class="c-input"
-                placeholder="Ask AI..."
-              /><button class="mic-btn">
-                <i class="ph-fill ph-microphone"></i>
-              </button>
-            </div>
-            <button class="btn-circle-icon send">
+            <input type="text" placeholder="Ask Gemini..." />
+            <button class="send-btn">
               <i class="ph-fill ph-paper-plane-right"></i>
             </button>
           </div>
         </div>
       </div>
+
+      <div id="view-karma" class="tab-content" style="display: none">
+        <div class="karma-simple-card">
+          <div class="ksc-left">
+            <span class="ksc-lbl">Total Karma</span>
+            <h1 class="ksc-val">850</h1>
+          </div>
+          <div class="ksc-right">
+            <i class="ph-fill ph-coin-vertical"></i>
+          </div>
+        </div>
+
+        <!-- <div class="section-head">MY FRAMES</div>
+        <div class="frames-scroll">
+          <div class="frame-item active">
+            <div class="sh-rect">
+              <img
+                src="https://i.pinimg.com/736x/fe/d9/59/fed9593b55cacad8fb0d4c7bddfa5695.jpg"
+                class="sh-img"
+              />
+            </div>
+            <span class="f-name">Default</span>
+          </div>
+
+          <div class="frame-item">
+            <div class="custom-frame-rect">
+              <img
+                src="https://i.pinimg.com/736x/fe/d9/59/fed9593b55cacad8fb0d4c7bddfa5695.jpg"
+                class="cf-bg"
+              />
+              <img
+                src="Gemini_Generated_Image_ncuwjkncuwjkncuw new.png"
+                class="cf-overlay"
+              />
+            </div>
+            <span class="f-name">Gold</span>
+            <span class="f-price">50 Pts</span>
+          </div>
+
+          <div class="frame-item locked">
+            <div class="custom-frame-rect">
+              <img
+                src="https://i.pinimg.com/736x/fe/d9/59/fed9593b55cacad8fb0d4c7bddfa5695.jpg"
+                class="cf-bg"
+              />
+              <img
+                src="Gemini_Generated_Image_ncuwjkncuwjkncuw copy.png"
+                class="cf-overlay"
+              />
+              <div class="lock-overlay">
+                <i class="ph-fill ph-lock-key"></i>
+              </div>
+            </div>
+            <span class="f-name">Neon</span>
+            <span class="f-price">100 Pts</span>
+          </div>
+
+          <div class="frame-item locked">
+            <div class="custom-frame-rect">
+              <img
+                src="https://i.pinimg.com/736x/fe/d9/59/fed9593b55cacad8fb0d4c7bddfa5695.jpg"
+                class="cf-bg"
+              />
+              <img
+                src="Gemini_Generated_Image_ncuwjkncuwjkncuw wires.png"
+                class="cf-overlay"
+              />
+              <div class="lock-overlay">
+                <i class="ph-fill ph-lock-key"></i>
+              </div>
+            </div>
+            <span class="f-name">Cosmic</span>
+            <span class="f-price">200 Pts</span>
+          </div>
+        </div> -->
+
+        <div class="section-head">EARN</div>
+        <div class="simple-task-list">
+          <div class="s-task">
+            <div class="st-icon"><i class="ph-bold ph-user"></i></div>
+            <div class="st-info">Complete Profile</div>
+            <button class="st-btn">+50</button>
+          </div>
+          <div class="s-task">
+            <div class="st-icon"><i class="ph-bold ph-video"></i></div>
+            <div class="st-info">Watch Ad</div>
+            <button class="st-btn">+20</button>
+          </div>
+          <div class="s-task">
+            <div class="st-icon"><i class="ph-bold ph-share-network"></i></div>
+            <div class="st-info">Invite Friends</div>
+            <button class="st-btn">+100</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="height: 80px"></div>
     </div>
+
     <nav class="nav-bar glass-nav">
       <i
         class="ph ph-house n-icon"
         onclick="window.location.href='home.html'"
-      ></i
-      ><i
-        class="ph ph-planet n-icon"
+      ></i>
+      <i
+        class="ph-fill ph-planet n-icon"
         onclick="window.location.href='galaxy.html'"
-      ></i
-      ><i
+      ></i>
+      <i
         class="ph ph-scroll n-icon"
         onclick="window.location.href='astro-knowledge.html'"
-      ></i
-      ><i
-        class="ph-fill ph-user n-icon active"
+      ></i>
+      <i
+        class="ph-fill active ph-user n-icon"
         onclick="window.location.href='index.html'"
       ></i>
     </nav>
-    <div id="modal-edit-profile" class="modal-overlay">
-      <div class="modal-content glass-card-full">
-        <h3>Edit Profile</h3>
-        <div class="edit-form">
-          <div class="dp-edit-wrap">
-            <img
-              src="https://i.pravatar.cc/300?img=11"
-              id="edit-dp-preview"
-            /><label for="dp-upload" class="dp-cam"
-              ><i class="ph-bold ph-camera"></i></label
-            ><input
-              type="file"
-              id="dp-upload"
-              hidden
-              accept="image/*"
-              onchange="previewDP(this)"
-            />
-          </div>
-          <input
-            type="text"
-            class="modal-input"
-            id="edit-name"
-            placeholder="Name"
-            value="Aryendra"
-          /><input
-            type="text"
-            class="modal-input"
-            id="edit-bio"
-            placeholder="Bio"
-            value="Loves Working out , reading books , and coding ."
-          />
-          <div class="row-inputs">
-            <input type="date" class="modal-input" id="edit-dob" /><input
-              type="time"
-              class="modal-input"
-              id="edit-time"
-            />
-          </div>
-          <input
-            type="text"
-            class="modal-input"
-            id="edit-location"
-            placeholder="Birth Location"
-          /><select class="modal-input" id="edit-gender">
-            <option value="Male">Male</option>
-            <option value="Female">Female</option></select
-          ><button class="btn-primary" onclick="saveProfile()">
-            Save Changes</button
-          ><button class="btn-text" onclick="closeModal('modal-edit-profile')">
-            Cancel
-          </button>
-        </div>
-      </div>
-    </div>
-    <div id="modal-settings" class="modal-overlay">
-      <div class="modal-content glass-card-full">
-        <h3>Settings</h3>
-        <div class="settings-list">
-          <button
-            class="setting-item text-red"
-            onclick="alert('Logged Out!');closeModal('modal-settings')"
-          >
-            <i class="ph ph-sign-out"></i> Logout</button
-          ><button
-            class="setting-item text-red"
-            onclick="alert('Account Deleted!');closeModal('modal-settings')"
-          >
-            <i class="ph ph-trash"></i> Delete Account</button
-          ><button class="btn-text" onclick="closeModal('modal-settings')">
-            Close
-          </button>
-        </div>
-      </div>
-    </div>
-    <div id="modal-karma" class="modal-overlay">
-      <div class="modal-content glass-card-full">
-        <h3><i class="ph-fill ph-star"></i> Earn Karma</h3>
-        <div class="karma-list">
-          <div class="k-item" onclick="addKarma(20)">
-            <div class="k-desc">
-              <span>Watch Ad</span><small>+20 Karma</small>
-            </div>
-            <i class="ph-bold ph-play-circle"></i>
-          </div>
-          <div class="k-item" onclick="addKarma(10)">
-            <div class="k-desc">
-              <span>Post Story</span><small>+10 Karma</small>
-            </div>
-            <i class="ph-bold ph-plus-circle"></i>
-          </div>
-        </div>
-        <button class="btn-text" onclick="closeModal('modal-karma')">
-          Close
-        </button>
-      </div>
-    </div>
-    <div id="modal-create-highlight" class="modal-overlay">
-      <div class="modal-content glass-card-full">
-        <h3>New Highlight</h3>
-        <input
-          type="text"
-          class="modal-input"
-          id="new-highlight-name"
-          placeholder="Highlight Name (e.g. Gym)"
-        /><button class="btn-primary" onclick="createHighlight()">Create</button
-        ><button
-          class="btn-text"
-          onclick="closeModal('modal-create-highlight')"
-        >
-          Cancel
-        </button>
-      </div>
-    </div>
-    <div id="modal-view-highlight" class="modal-overlay">
-      <div class="modal-content glass-card-full">
-        <div class="hl-header">
-          <h3 id="hl-title">Highlight</h3>
-          <i
-            class="ph ph-trash"
-            onclick="deleteCurrentHighlight()"
-            style="color: red; cursor: pointer"
-          ></i>
-        </div>
-        <div class="hl-grid" id="hl-grid"></div>
-        <div class="hl-actions">
-          <input
-            type="file"
-            id="hl-upload"
-            hidden
-            accept="image/*"
-            onchange="addPhotoToHighlight(this)"
-          /><button
-            class="btn-secondary"
-            onclick="document.getElementById('hl-upload').click()"
-          >
-            <i class="ph-bold ph-plus"></i> Add Photo (Max 5)
-          </button>
-        </div>
-        <button class="btn-text" onclick="closeModal('modal-view-highlight')">
-          Close
-        </button>
-      </div>
-    </div>
-    <script src="script.js"></script>
+
+    <script>
+      function switchTab(tabName) {
+        document
+          .querySelectorAll(".tab-btn")
+          .forEach((btn) => btn.classList.remove("active"));
+        document.getElementById("btn-" + tabName).classList.add("active");
+        document
+          .querySelectorAll(".tab-content")
+          .forEach((view) => (view.style.display = "none"));
+        const activeView = document.getElementById("view-" + tabName);
+        activeView.style.display = "block";
+        activeView.style.animation = "fadeIn 0.3s ease";
+      }
+    </script>
   </body>
 </html>

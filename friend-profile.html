@@ -6,12 +6,12 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
-    <title>Friend Profile</title>
+    <title>Profile</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="global.css" />
     <link rel="stylesheet" href="friend-profile.css" />
   </head>
@@ -30,143 +30,266 @@
 
       <div class="hero-section">
         <div class="dp-wrapper">
-          <img src="https://i.pravatar.cc/300?img=5" class="dp-img" />
+          <img
+            src="https://i.pinimg.com/736x/93/4d/dd/934ddd258367714b257f3552231c039d.jpg"
+            class="dp-img"
+          />
           <div class="status-dot online"></div>
         </div>
-
-        <div class="user-name">
-          Alexa <i class="ph-fill ph-seal-check verified-badge"></i>
-        </div>
-
-        <div class="handle-box glass-pill">
-          <span class="user-handle">@Alx_scorpio</span>
+        <div class="user-info-block">
+          <h2 class="user-name">Riya Sharma</h2>
+          <span class="user-handle glass-pill">@riya_vibes</span>
         </div>
 
         <div class="stats-row">
           <div class="s-item">
-            <span class="s-val">412</span> <span class="s-lbl">Friends</span>
+            <span class="s-val">Scorpio</span><span class="s-lbl">Moon 🔥</span>
           </div>
           <div class="s-divider"></div>
           <div class="s-item">
-            <span class="s-val">89</span> <span class="s-lbl">Streak</span>
+            <span class="s-val">Gemini</span><span class="s-lbl">Sun ☀️</span>
           </div>
           <div class="s-divider"></div>
+
           <div class="s-item">
-            <span class="s-val">1.2k</span> <span class="s-lbl">Karma</span>
+            <span class="s-val">412</span><span class="s-lbl">circle</span>
           </div>
         </div>
 
-        <p class="bio-text">
-          Mystic soul. Scorpio Sun. 🌙<br />Decoding the matrix.
-        </p>
-
         <div class="profile-actions">
-          <button
-            class="btn-action primary"
-            onclick="window.location.href='message-view.html'"
-          >
-            Message
-          </button>
-          <button class="btn-action danger" onclick="confirmUnfriend()">
-            <i class="ph-bold ph-user-minus"></i>
+          <button class="btn-action primary">Message</button>
+          <button class="btn-action danger">
+            <i class="ph-bold ph-heart"></i>
           </button>
         </div>
       </div>
 
+      <div class="section-divider">MEMORIES</div>
       <div class="highlights-scroll">
         <div class="story-highlight">
           <div class="sh-rect">
-            <img src="https://i.pravatar.cc/150?img=10" class="sh-img" />
+            <img
+              src="https://placeit-img-1-p.cdn.aws.placeit.net/uploads/stage/stage_image/37435/optimized_product_thumb_stage.jpg"
+              class="sh-img"
+            />
           </div>
-          <span class="s-txt">Travel</span>
+          <span class="s-txt">Trips</span>
         </div>
         <div class="story-highlight">
           <div class="sh-rect">
-            <img src="https://i.pravatar.cc/150?img=15" class="sh-img" />
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLzrpPoi52192LtHTEQxCm1IZGpU26GM7vNA&s"
+              class="sh-img"
+            />
           </div>
           <span class="s-txt">Aura</span>
         </div>
         <div class="story-highlight">
           <div class="sh-rect">
-            <img src="https://i.pravatar.cc/150?img=20" class="sh-img" />
-          </div>
-          <span class="s-txt">Cats</span>
-        </div>
-        <div class="story-highlight">
-          <div class="sh-rect">
-            <img src="https://i.pravatar.cc/150?img=25" class="sh-img" />
-          </div>
-          <span class="s-txt">Gym</span>
-        </div>
-        <div class="story-highlight">
-          <div class="sh-rect">
-            <img src="https://i.pravatar.cc/150?img=30" class="sh-img" />
+            <img
+              src="https://mir-s3-cdn-cf.behance.net/project_modules/hd_webp/2af8b996214533.5ea95ba9ebe6b.jpeg"
+              class="sh-img"
+            />
           </div>
           <span class="s-txt">Vibe</span>
         </div>
+        <div class="story-highlight">
+          <div class="sh-rect">
+            <img
+              src="https://i.pinimg.com/736x/d1/21/54/d12154a3bbdc338f009c799606d7bf9e.jpg"
+              class="sh-img"
+            />
+          </div>
+          <span class="s-txt">Sunset</span>
+        </div>
       </div>
 
-      <div class="section-divider">COSMIC SYNERGY</div>
+      <div class="section-divider">COSMIC REPORT (YOU + HER)</div>
 
       <div class="view-container">
-        <div class="connection-card god-tier">
-          <div class="cc-header">
-            <div class="cc-icon gold"><i class="ph-fill ph-crown"></i></div>
-            <div class="cc-info">
-              <h3 class="gold-text">The Infinity Loop</h3>
-              <span class="cc-rarity">Super Rare (1 in 1,00,000)</span>
+        <div class="master-synergy-card">
+          <div
+            class="msc-header"
+            onclick="generateCard('The Infinity Loop', 'Your Moon and her Jupiter form a perfect 5/9 Axis. A bond from past lives.')"
+          >
+            <div class="shine-overlay"></div>
+            <div class="msc-top-row">
+              <div class="msc-badge">
+                <i class="ph-fill ph-crown-simple"></i> #1 RAREST MATCH
+              </div>
+              <span class="msc-rarity">1 in 10,00,000</span>
+            </div>
+            <h3 class="msc-title">The Infinity Loop ♾️</h3>
+            <p class="msc-desc">
+              Your souls guided each other through a crisis in a past life. This
+              bond is unbreakable.
+            </p>
+            <div class="msc-arrow"><i class="ph-bold ph-caret-down"></i></div>
+          </div>
+
+          <div class="msc-list">
+            <div
+              class="matrix-row"
+              onclick="generateCard('Mirror Souls', 'You both have Moons in Water signs (Scorpio & Pisces). You feel each others emotions without speaking.')"
+            >
+              <div class="mr-left">
+                <div class="mr-icon"><i class="ph-fill ph-sparkle"></i></div>
+                <div class="mr-info">
+                  <span class="mr-name">Mirror Souls</span>
+                  <span class="mr-sub">Twin Flame Energy</span>
+                </div>
+              </div>
+              <div class="mr-right">
+                <span class="rarity-tag">1 in 50k</span>
+                <i class="ph-bold ph-caret-right mr-arrow"></i>
+              </div>
+            </div>
+
+            <div
+              class="matrix-row"
+              onclick="generateCard('Telepathic Bond', 'Mercury trine Ketu. You know what she is thinking before she speaks.')"
+            >
+              <div class="mr-left">
+                <div class="mr-icon"><i class="ph-fill ph-brain"></i></div>
+                <div class="mr-info">
+                  <span class="mr-name">Telepathic Bond</span>
+                  <span class="mr-sub">Mental Sync</span>
+                </div>
+              </div>
+              <div class="mr-right">
+                <span class="rarity-tag">1 in 10k</span>
+                <i class="ph-bold ph-caret-right mr-arrow"></i>
+              </div>
+            </div>
+
+            <div
+              class="matrix-row"
+              onclick="generateCard('Empire Builders', 'Saturn and Mars alignment. You two can build massive wealth together.')"
+            >
+              <div class="mr-left">
+                <div class="mr-icon"><i class="ph-fill ph-buildings"></i></div>
+                <div class="mr-info">
+                  <span class="mr-name">Empire Builders</span>
+                  <span class="mr-sub">Business Partners</span>
+                </div>
+              </div>
+              <div class="mr-right">
+                <span class="rarity-tag">1 in 5k</span>
+                <i class="ph-bold ph-caret-right mr-arrow"></i>
+              </div>
+            </div>
+
+            <div
+              class="matrix-row"
+              onclick="generateCard('High Chemistry', 'Venus and Mars are in mutual aspect. Physical attraction is extremely high.')"
+            >
+              <div class="mr-left">
+                <div class="mr-icon"><i class="ph-fill ph-lightning"></i></div>
+                <div class="mr-info">
+                  <span class="mr-name">Electric Touch</span>
+                  <span class="mr-sub">High Chemistry</span>
+                </div>
+              </div>
+              <div class="mr-right">
+                <span class="rarity-tag">1 in 1k</span>
+                <i class="ph-bold ph-caret-right mr-arrow"></i>
+              </div>
             </div>
           </div>
-
-          <div class="cc-body">
-            <p class="congrats-text">
-              <b style="color: goldenrod">Congrats!</b> In Vedic Astrology, this
-              combination is incredibly rare.
-            </p>
-            <p>
-              Your <b>Atmakaraka</b> (Soul Planet) and her
-              <b>Darakaraka</b> (Spouse Planet) are exactly the same. The
-              universe conspired to make this happen.
-            </p>
+          <div class="msc-footer">
+            <span>+ 15 other yogas matched</span>
           </div>
-
-          <div
-            class="cc-link"
-            onclick="window.location.href='astro-knowledge.html'"
-          >
-            <span>What does this mean?</span>
-            <i class="ph-bold ph-arrow-right"></i>
-          </div>
-
-          <div class="shine"></div>
         </div>
+      </div>
 
-        <div class="premium-unlock-box">
-          <div class="pub-info">
-            <b>Check Compatibility</b>
-            <span>Get detailed insights.</span>
+      <div class="section-divider">
+        HER BLUEPRINT
+        <span style="font-size: 9px; opacity: 0.6">(INDIVIDUAL)</span>
+      </div>
+
+      <div class="blueprint-container">
+        <div class="blueprint-card">
+          <div class="bp-icon"><i class="ph-fill ph-mask-happy"></i></div>
+          <div class="bp-content">
+            <h4>WHAT SHE LIKES</h4>
+            <p>
+              Loves Deep Talks & Dark Humor. Certified Overthinker. Needs
+              constant reassurance.
+            </p>
           </div>
-          <button class="btn-buy" onclick="buyReport()">
-            <span>₹30</span>
+        </div>
+        <div class="blueprint-card warning-bg">
+          <div class="bp-icon red-icon">
+            <i class="ph-fill ph-warning-octagon"></i>
+          </div>
+          <div class="bp-content">
+            <h4>RED FLAGS</h4>
+            <p>
+              <b>Manglik Dosh:</b> High energy & aggression. Can be dominating
+              if provoked.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom-action-area">
+        <div class="gun-milan-btn">
+          <div class="gmb-left">
+            <div class="gmb-icon"><i class="ph-fill ph-lock-key-open"></i></div>
+            <div class="gmb-text">
+              <h4>Check Marriage Yoga</h4>
+              <span>Detailed Gun Milan (36 Pts)</span>
+            </div>
+          </div>
+          <button class="unlock-btn-gold">
+            <s style="opacity: 0.6; font-size: 10px; margin-right: 4px">₹50</s>
+            ₹30
+          </button>
+        </div>
+      </div>
+
+      <div style="height: 40px"></div>
+    </div>
+
+    <div id="cardModal" class="modal-overlay">
+      <div class="modal-content">
+        <div class="loader-animation">
+          <i class="ph-fill ph-sparkle animate-spin"></i>
+          <span>Decrypting Stars...</span>
+        </div>
+        <div class="generated-card" style="display: none">
+          <div class="gen-header">
+            <i class="ph-fill ph-star-four"></i>
+            <span id="genTitle">TITLE</span>
+          </div>
+          <p id="genText">Description goes here...</p>
+          <button class="close-modal-btn" onclick="closeModal()">
+            Awesome
           </button>
         </div>
       </div>
     </div>
 
     <script>
-      function confirmUnfriend() {
-        if (confirm("Disconnect from this cosmic orbit?")) {
-          window.location.href = "home.html";
-        }
-      }
+      // MODAL LOGIC
+      function generateCard(title, text) {
+        const modal = document.getElementById("cardModal");
+        const loader = document.querySelector(".loader-animation");
+        const card = document.querySelector(".generated-card");
 
-      function buyReport() {
-        const btn = document.querySelector(".btn-buy");
-        btn.innerHTML = '<i class="ph-bold ph-spinner ph-spin"></i>';
+        modal.style.display = "flex";
+        loader.style.display = "flex";
+        card.style.display = "none";
+
         setTimeout(() => {
-          alert("Payment Gateway would open here.");
-          btn.innerHTML = "<span>₹30</span>";
-        }, 1000);
+          loader.style.display = "none";
+          card.style.display = "block";
+          document.getElementById("genTitle").innerText = title;
+          document.getElementById("genText").innerText = text;
+        }, 800);
+      }
+      function closeModal() {
+        document.getElementById("cardModal").style.display = "none";
       }
     </script>
   </body>

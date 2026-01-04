@@ -195,27 +195,3 @@ function deleteCurrentHighlight() {
         closeModal('modal-view-highlight');
     }
 }
-function triggerSupernova(btn) {
-  if (btn.classList.contains('sent')) return;
-
-  // 1. Add Class for Animation & Style Change
-  btn.classList.add('sent');
-
-  // 2. Change Text & Icon
-  const textSpan = btn.querySelector('.sn-text');
-  const icon = btn.querySelector('i');
-  
-  textSpan.innerText = "LINKED"; // Immediate Feedback
-  icon.className = "ph-bold ph-check"; // Change Lightning to Check
-
-  // 3. Haptic Feedback (Dopamine Hit)
-  if (navigator.vibrate) {
-    // Short sharp burst like a 'click'
-    navigator.vibrate(50); 
-  }
-
-  // 4. (Optional) Remove card after delay
-  // setTimeout(() => {
-  //   btn.closest('.planet-card').style.display = 'none';
-  // }, 1000);
-}
