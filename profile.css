@@ -1,26 +1,39 @@
-/* --- HERO SECTION --- */
+/* --- 1. GLOBAL & RESET FIXES FOR SAMSUNG --- */
+* {
+  box-sizing: border-box; /* Zaroori hai taaki padding se size na badhe */
+  -webkit-tap-highlight-color: transparent; /* Click effect hatao */
+}
+
+/* --- 2. HERO SECTION (Fixed DP Size) --- */
 .hero-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: 15px;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  width: 100%; /* Ensure container takes full width */
 }
+
+/* DP Wrapper - Fixed Size (Aura Hata Diya) */
 .dp-wrapper-clean {
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 100px; /* Fixed Width */
+  height: 100px; /* Fixed Height */
   margin-bottom: 12px;
+  flex-shrink: 0; /* Shrink hone se rokta hai */
 }
+
 .user-dp {
   width: 100%;
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid white;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  display: block; /* Gap remove karne ke liye */
 }
+
 .status-dot {
   position: absolute;
   bottom: 5px;
@@ -30,6 +43,14 @@
   background: var(--apple-green);
   border: 3px solid white;
   border-radius: 50%;
+  z-index: 2;
+}
+
+.user-info-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .user-name {
@@ -40,51 +61,69 @@
   align-items: center;
   gap: 6px;
   justify-content: center;
+  margin-bottom: 2px;
 }
+
 .verified-badge {
   color: var(--apple-blue);
   font-size: 18px;
 }
+
 .user-handle {
   font-size: 13px;
   color: var(--text-muted);
   font-weight: 500;
 }
 
+/* --- STATS ROW (Glass Fix) --- */
 .stats-row {
   display: flex;
-  gap: 20px;
-  margin: 15px 0;
-  background: rgba(255, 255, 255, 0.5);
-  padding: 8px 20px;
+  justify-content: space-around; /* Space even rakhega */
+  align-items: center;
+  width: 90%; /* Mobile pe width control */
+  max-width: 350px;
+  margin: 15px auto;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 10px 15px;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.6);
+  /* Samsung Blur Fix */
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
 }
+
 .s-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
+  flex: 1; /* Barabar hissa milega */
 }
+
 .s-val {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--text-main);
 }
+
 .s-lbl {
-  font-size: 10px;
+  font-size: 9px;
   color: var(--text-muted);
   font-weight: 600;
   text-transform: uppercase;
+  margin-top: 2px;
 }
+
 .s-divider {
   width: 1px;
   height: 25px;
   background: rgba(0, 0, 0, 0.1);
 }
 
+/* --- VIEW CIRCLE BUTTON --- */
 .btn-view-circle {
   width: 90%;
+  max-width: 350px;
   background: white;
   border: none;
   padding: 12px 20px;
@@ -96,15 +135,18 @@
   margin-bottom: 15px;
   cursor: pointer;
 }
+
 .btn-view-circle span {
   font-size: 13px;
   font-weight: 600;
   color: var(--text-main);
 }
+
 .avatars-stack {
   display: flex;
   align-items: center;
 }
+
 .avatars-stack img {
   width: 24px;
   height: 24px;
@@ -112,6 +154,7 @@
   border: 2px solid white;
   margin-left: -8px;
 }
+
 .avatars-stack img:first-child {
   margin-left: 0;
 }
@@ -123,56 +166,64 @@
   max-width: 85%;
   line-height: 1.5;
   font-weight: 500;
+  margin: 0 auto;
 }
 
-/* --- HIGHLIGHTS (Rectangle + Red Ring) --- */
+/* --- HIGHLIGHTS (Rectangular & Scroll Fix) --- */
 .section-head {
   font-size: 11px;
   font-weight: 800;
   color: #999;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  padding-left: 25px;
-  margin: 10px 0 10px 0;
+  padding-left: 20px;
+  margin: 20px 0 10px 0;
   display: block;
 }
+
 .highlights-scroll {
   display: flex;
   gap: 15px;
-  padding: 0 20px;
+  padding: 5px 20px 20px 20px;
   overflow-x: auto;
-  scrollbar-width: none;
-  margin-bottom: 20px;
+  scrollbar-width: none; /* Firefox */
+  -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS/Android */
 }
+
 .highlights-scroll::-webkit-scrollbar {
-  display: none;
+  display: none; /* Chrome/Safari */
 }
+
 .story-highlight {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 70px;
+  min-width: 72px;
   cursor: pointer;
+  /* GPU Acceleration for smooth scroll */
+  transform: translateZ(0);
+  will-change: transform;
 }
 
-/* Standard Red Ring Rectangle */
 .sh-rect {
   width: 70px;
   height: 95px;
   border-radius: 18px;
-  padding: 2px;
   background: linear-gradient(45deg, #f09433, #bc1888, #cc2366);
+  padding: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 6px;
+  flex-shrink: 0; /* Shape maintain karega */
 }
+
 .sh-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 15px;
-  border: 3px solid #f4f7fc; /* White Gap */
+  border: 3px solid #f4f7fc;
   display: block;
   background: white;
 }
@@ -183,11 +234,19 @@
   color: #999;
   padding: 0;
 }
+.plus-rect i {
+  font-size: 24px;
+}
+
 .s-txt {
   font-size: 10px;
   font-weight: 500;
   color: var(--text-main);
   text-align: center;
+  max-width: 70px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* --- TABS --- */
@@ -198,6 +257,7 @@
   padding: 4px;
   border-radius: 16px;
 }
+
 .tab-btn {
   flex: 1;
   text-align: center;
@@ -211,30 +271,34 @@
   align-items: center;
   justify-content: center;
   gap: 6px;
-  transition: 0.3s;
+  transition: 0.2s;
 }
+
 .tab-btn.active {
   background: white;
   color: var(--text-main);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* --- AI SECTION --- */
+/* --- AI SECTION (Glass Fix) --- */
 .chat-interface {
-  margin: 0 20px;
-  margin-bottom: 20px;
-  background: white;
+  margin: 0 20px 20px 20px;
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 24px;
   height: 500px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  /* Samsung Fix */
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
 }
+
 .chat-header-small {
   padding: 12px 20px;
-  background: #f9f9f9;
+  background: rgba(249, 249, 249, 0.9);
   border-bottom: 1px solid #eee;
   display: flex;
   justify-content: space-between;
@@ -243,25 +307,29 @@
   font-weight: 700;
   color: #555;
 }
+
 .date-badge {
   background: #eee;
   padding: 2px 8px;
   border-radius: 8px;
   font-size: 10px;
 }
+
 .chat-scroll-area {
   flex: 1;
   padding: 15px;
   overflow-y: auto;
-  background: #fff;
+  background: white;
 }
+
 .message {
   display: flex;
   gap: 10px;
   align-items: flex-end;
-  max-width: 85%;
-  margin-bottom: 10px;
+  max-width: 90%;
+  margin-bottom: 15px;
 }
+
 .msg-avatar {
   width: 28px;
   height: 28px;
@@ -274,17 +342,18 @@
   font-size: 14px;
   flex-shrink: 0;
 }
+
 .msg-bubble {
-  padding: 10px 14px;
+  padding: 12px 16px;
   border-radius: 18px;
-  font-size: 12px;
-  line-height: 1.4;
+  font-size: 13px;
+  line-height: 1.5;
   background: #f2f2f7;
   color: #333;
   border-bottom-left-radius: 4px;
 }
 
-/* Suggestions Scroll */
+/* Chat Suggestions */
 .chat-suggestions {
   display: flex;
   gap: 8px;
@@ -293,24 +362,20 @@
   overflow-x: auto;
   scrollbar-width: none;
   border-top: 1px solid #eee;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
 }
-.chat-suggestions::-webkit-scrollbar {
-  display: none;
-}
+
 .s-chip {
   background: white;
   border: 1px solid #e0e0e0;
-  padding: 6px 12px;
+  padding: 8px 14px;
   border-radius: 20px;
   font-size: 11px;
   font-weight: 500;
   color: var(--apple-blue);
-  white-space: nowrap;
   cursor: pointer;
-  transition: 0.1s;
-}
-.s-chip:active {
-  background: #e0e0e0;
+  flex-shrink: 0;
 }
 
 .chat-input-bar {
@@ -320,25 +385,28 @@
   gap: 10px;
   align-items: center;
 }
+
 .chat-input-bar input {
   flex: 1;
   border: none;
   background: white;
-  padding: 10px 15px;
+  padding: 12px 15px;
   border-radius: 20px;
   font-size: 13px;
   outline: none;
 }
+
 .mic-btn,
 .send-btn {
   background: none;
   border: none;
   color: #007aff;
-  font-size: 18px;
+  font-size: 20px;
   cursor: pointer;
+  padding: 5px;
 }
 
-/* --- KARMA VAULT & FRAMES --- */
+/* --- KARMA VAULT --- */
 .karma-simple-card {
   margin: 0 20px 15px 20px;
   background: #1c1c1e;
@@ -350,6 +418,7 @@
   color: white;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
+
 .ksc-lbl {
   font-size: 11px;
   opacity: 0.7;
@@ -368,27 +437,24 @@
   opacity: 0.2;
 }
 
-/* FRAMES SCROLL SECTION */
+/* Frames Scroll */
 .frames-scroll {
   display: flex;
   gap: 20px;
-  padding: 0 20px;
+  padding: 5px 20px 20px 20px;
   overflow-x: auto;
   scrollbar-width: none;
-  margin-bottom: 20px;
 }
-.frames-scroll::-webkit-scrollbar {
-  display: none;
-}
+
 .frame-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 72px;
+  width: 70px;
+  flex-shrink: 0;
   cursor: pointer;
 }
 
-/* Custom Frame Container (For PNGs) */
 .custom-frame-rect {
   width: 70px;
   height: 95px;
@@ -398,19 +464,22 @@
   justify-content: center;
   margin-bottom: 6px;
 }
+
 .cf-bg {
   width: 100%;
   height: 100%;
   border-radius: 18px;
   object-fit: cover;
+  opacity: 0.8;
 }
-/* The PNG Frame fits exactly over the rect */
+
+/* PNG Overlay Fix */
 .cf-overlay {
   position: absolute;
-  top: -5px;
-  left: -5px;
-  width: 80px;
-  height: 105px;
+  top: -5%;
+  left: -5%;
+  width: 110%;
+  height: 110%;
   pointer-events: none;
   z-index: 2;
   object-fit: contain;
@@ -426,6 +495,7 @@
   color: var(--apple-green);
   font-weight: 500;
 }
+
 .lock-overlay {
   position: absolute;
   top: 0;
@@ -438,10 +508,11 @@
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 18px;
+  font-size: 20px;
   z-index: 3;
 }
 
+/* Simple Task List */
 .simple-task-list {
   padding: 0 20px;
   display: flex;
@@ -456,7 +527,9 @@
   align-items: center;
   gap: 12px;
   border: 1px solid #f5f5f5;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
 }
+
 .st-icon {
   width: 32px;
   height: 32px;
@@ -467,6 +540,7 @@
   justify-content: center;
   color: #555;
 }
+
 .st-info {
   flex: 1;
   font-size: 13px;
@@ -484,7 +558,7 @@
   cursor: pointer;
 }
 
-/* --- NAVBAR --- */
+/* --- NAVBAR (Glass Fix) --- */
 .nav-bar.glass-nav {
   position: fixed;
   bottom: 20px;
@@ -494,6 +568,8 @@
   max-width: 400px;
   height: 65px;
   background: rgba(255, 255, 255, 0.9);
+  /* Samsung Blur Fix */
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   border-radius: 35px;
   display: flex;
@@ -503,6 +579,7 @@
   border: 1px solid rgba(255, 255, 255, 0.5);
   z-index: 100;
 }
+
 .n-icon {
   font-size: 24px;
   color: #ccc;
